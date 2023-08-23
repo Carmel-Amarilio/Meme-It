@@ -30,6 +30,7 @@
 
     .meme-editor {
         grid-template-columns: none;
+        grid-template-columns: minmax(250px, 500px);
         grid-template-rows: 1fr  30px 1fr;
     }
 
