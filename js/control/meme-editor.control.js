@@ -5,11 +5,7 @@ let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
-function onImg(elImg) {
-    document.querySelector('.meme-editor').classList.remove('closed')
-    document.querySelector('.img-gallery').classList.add('closed')
-    document.querySelector('.file-input').classList.add('closed')
-
+function inEditor(elImg) {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
 

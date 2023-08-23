@@ -1,7 +1,6 @@
 .meme-editor {
     display: grid;
     grid-template-columns: minmax(250px, 1fr) 30px 1fr;
-    height: minmax(250px, 1fr);
     margin-block: 50px;
 }
 

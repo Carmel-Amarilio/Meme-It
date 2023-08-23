@@ -20,6 +20,15 @@ function onGallery(){
     document.querySelector('.img-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.remove('closed')
     document.querySelector('.meme-editor').classList.add('closed')
+    toggleMenu()
+}
+
+function onImg(elImg) {
+    document.querySelector('.meme-editor').classList.remove('closed')
+    document.querySelector('.img-gallery').classList.add('closed')
+    document.querySelector('.file-input').classList.add('closed')
+    toggleMenu()
+    inEditor(elImg)
 }
 
 function toggleMenu() {

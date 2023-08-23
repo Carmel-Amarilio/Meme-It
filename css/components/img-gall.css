@@ -8,6 +8,13 @@
     border-radius: 20px;
 }
 
+.img-gallery img{
+    cursor: pointer;
+}
+.img-gallery img:hover{
+    opacity: .6;
+    scale: 1.1;
+}
 
 .file-input {
     position: sticky;
