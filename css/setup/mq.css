@@ -27,6 +27,16 @@
         z-index: 10;
         opacity: 1;
     }
+
+    .meme-editor {
+        grid-template-columns: none;
+        grid-template-rows: 1fr  30px 1fr;
+    }
+
+    .main-editor {
+        grid-column: 1;
+        grid-row: 3;
+    }
 }
 
 @media (min-width: 600px) {
