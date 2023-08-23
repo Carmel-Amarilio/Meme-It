@@ -1,4 +1,4 @@
-.img-gallery{
+.img-gallery {
     display: grid;
     background-color: var(--galleryClr);
     background-size: cover;
@@ -6,4 +6,22 @@
     gap: 30px;
     padding: 50px;
     border-radius: 20px;
+}
+
+
+.file-input {
+    position: sticky;
+    bottom: 50px;
+    left: 50px;
+}
+
+.file-input img {
+    cursor: pointer;
+    border-radius: 5px;
+    width: 70px;
+    background-color:white;
+}
+.file-input img:hover {
+    background-color: var(--footerBgClr);
+    /* background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210)); */
 }

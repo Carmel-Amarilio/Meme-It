@@ -8,6 +8,7 @@ const gCurrTxt = { isMove: false, id: 0 }
 function onImg(elImg) {
     document.querySelector('.meme-editor').classList.remove('closed')
     document.querySelector('.img-gallery').classList.add('closed')
+    document.querySelector('.file-input').classList.add('closed')
 
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
@@ -57,12 +58,12 @@ function onSetTxt(ev) {
     openMeme()
 }
 
-function onAddTxt(){
+function onAddTxt() {
     addTxt()
     openMeme()
 }
 
-function onDeleteTxt(){
+function onDeleteTxt() {
     deleteTxt(gCurrTxt.id)
     openMeme()
 }
@@ -109,15 +110,15 @@ function addTouchListeners() {
 function onDown(ev) {
     const pos = getEvPos(ev)
     const txtId = getTxtByPos(pos)
-    if (!txtId ) return
-        gCurrTxt.id = txtId -1
-        gCurrTxt.isMove = true
-    
+    if (!txtId) return
+    gCurrTxt.id = txtId - 1
+    gCurrTxt.isMove = true
+    updateTools()
 }
 function onMove(ev) {
     if (!gCurrTxt.isMove) return
     const pos = getEvPos(ev)
-    pos.x = pos.x - gCanvas.width/2
+    pos.x = pos.x - gCanvas.width / 2
     pos.y = pos.y - 20
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
@@ -148,11 +149,25 @@ function getTxtByPos(pos) {
     meme.text.forEach((txt, i) => {
         const txtPosX = txt.pos.x + gCanvas.width
         const txtPosY = txt.pos.y + gCanvas.width / 11 + txt.inc + 20
-        console.log(txtPosX, txtPosY)
-
-        if (pos.x < txtPosX && pos.y < txtPosY && pos.y > txtPosY - 57) index = i +1
+        if (pos.x < txtPosX && pos.y < txtPosY && pos.y > txtPosY - 57) index = i + 1
     });
     return index
 }
 
-//{id: 1, txt:'Funny Text', color: 'black', inc: 0, font: 'Arial', align: 'center', pos: {x:0, y:0}}
+function updateTools(){
+    const meme = getMeme()
+    const {txt, color, font} = meme.text[gCurrTxt.id]
+    document.querySelector('.input-txt').value = txt
+    document.querySelector('.color-text').value = color
+    document.querySelector('.set-font').value = font
+
+}
+
+function onSaveMeme(){
+    saveMeme()
+}
+
+function downloadImg(elLink) {
+    const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}

@@ -18,6 +18,7 @@ function ReaderGall() {
 
 function onGallery(){
     document.querySelector('.img-gallery').classList.remove('closed')
+    document.querySelector('.file-input').classList.remove('closed')
     document.querySelector('.meme-editor').classList.add('closed')
 }
 

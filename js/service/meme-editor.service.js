@@ -1,6 +1,5 @@
 'use strict'
 
-const gMemes = []
 const gMeme = {
     img: `<img src="img/1.jpg" alt="#" onclick="onImg(this)"></img>`,
     text: [
@@ -53,4 +52,11 @@ function updateCurrMemeTxtFont(font, index){
 function updateCurrMemeTxtPos(index, pos){
     gMeme.text[index].pos.x = pos.x
     gMeme.text[index].pos.y = pos.y
+}
+
+function saveMeme(){
+    let memes = loadFromStorage('memesDB')
+    if (!memes)memes=[]
+    memes.push(gMeme)
+    saveToStorage('memesDB', gMeme)
 }
