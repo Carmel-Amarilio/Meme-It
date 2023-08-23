@@ -32,6 +32,17 @@
     margin-inline: 5px;
 }
 
+.main-editor .add-txt, .delete-txt{
+    font-size: 25px;
+}
+
+.main-editor .add-txt:hover{
+    background-color: rgb(84, 168, 88);
+}
+.main-editor .delete-txt:hover{
+    background-color: rgb(219, 65, 31);
+}
+
 .main-editor .input-txt {
     border-radius: 10px;
     width: 300px;

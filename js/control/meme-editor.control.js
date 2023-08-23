@@ -3,7 +3,7 @@
 let gCanvas
 let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
-const gMoveTxt = { isMove: false, id: null }
+const gCurrTxt = { isMove: false, id: 0 }
 
 function onImg(elImg) {
     document.querySelector('.meme-editor').classList.remove('closed')
@@ -30,7 +30,7 @@ function resizeCanvas() {
 function openMeme() {
     const meme = getMeme()
     gCtx.drawImage(meme.img, 0, 0, gCanvas.width, gCanvas.height)
-    drawText(meme.text[0])
+    meme.text.forEach(txt => drawText(txt))
 }
 
 function drawText({ txt, color, inc, font, align, pos }) {
@@ -48,32 +48,42 @@ function drawText({ txt, color, inc, font, align, pos }) {
     gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y + size / 2 + 20)
 }
 
-function onSetLineTxt(ev) {
+function onSetTxt(ev) {
     ev.preventDefault()
     const elInput = document.querySelector('.input-txt')
     if (elInput.value === '') return
     console.log(elInput.value);
-    updateCurrMemeTxt(elInput.value)
+    updateCurrMemeTxt(elInput.value, gCurrTxt.id)
+    openMeme()
+}
+
+function onAddTxt(){
+    addTxt()
+    openMeme()
+}
+
+function onDeleteTxt(){
+    deleteTxt(gCurrTxt.id)
     openMeme()
 }
 
 function onIncTxt(inc) {
-    updateCurrMemeTxtSize(inc)
+    updateCurrMemeTxtSize(inc, gCurrTxt.id)
     openMeme()
 }
 
 function onAlignTxt(align) {
-    updateCurrMemeTxtAlign(align)
+    updateCurrMemeTxtAlign(align, gCurrTxt.id)
     openMeme()
 }
 
 function onColor(color) {
-    updateCurrMemeTxtColor(color)
+    updateCurrMemeTxtColor(color, gCurrTxt.id)
     openMeme()
 }
 
 function onSetFont(elFont) {
-    updateCurrMemeTxtFont(elFont.value)
+    updateCurrMemeTxtFont(elFont.value, gCurrTxt.id)
     openMeme()
 }
 
@@ -100,20 +110,20 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     const txtId = getTxtByPos(pos)
     if (!txtId ) return
-        gMoveTxt.id = txtId -1
-        gMoveTxt.isMove = true
+        gCurrTxt.id = txtId -1
+        gCurrTxt.isMove = true
     
 }
 function onMove(ev) {
-    if (!gMoveTxt.isMove) return
+    if (!gCurrTxt.isMove) return
     const pos = getEvPos(ev)
     pos.x = pos.x - gCanvas.width/2
     pos.y = pos.y - 20
-    updateCurrMemeTxtPos(gMoveTxt.id, pos)
+    updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
 }
 function onUp() {
-    gMoveTxt.isMove = false
+    gCurrTxt.isMove = false
 }
 
 function getEvPos(ev) {
