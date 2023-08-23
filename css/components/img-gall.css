@@ -1,0 +1,9 @@
+.img-gallery{
+    display: grid;
+    background-color: var(--galleryClr);
+    background-size: cover;
+    grid-template-columns: repeat(auto-fit, minmax(var(--minImgSize), 1fr));
+    gap: 30px;
+    padding: 50px;
+    border-radius: 20px;
+}

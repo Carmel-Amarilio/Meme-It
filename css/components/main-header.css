@@ -1,0 +1,55 @@
+.main-header {
+    margin-block: var(--headerMarg);
+    height: var(--headerHeight);
+    background-color: var(--headerBgClr);
+}
+
+.main-header .logo {
+    font-family: BebasNeue;
+    border-radius: 10px;
+    padding: 5px;
+    letter-spacing: 5px;
+    padding-inline-end: 0px;
+    font-size: 40px;
+    background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210));
+}
+.main-header .logo span {
+    padding: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.main-header ul {
+    margin: 0;
+}
+
+.main-header li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    height: var(--headerHeight);
+    
+}
+.main-header button {
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border: 0;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.main-header button:hover {
+    background-color: rgba(240, 248, 255, 0.365);
+}
+
+.main-header li:hover {
+    cursor: pointer;
+    color: var(--hoverClr);
+}
+
+
+
+
+
+

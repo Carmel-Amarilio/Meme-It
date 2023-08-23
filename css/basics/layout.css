@@ -1,0 +1,22 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr var(--mainContentSize) 1fr;
+
+}
+
+.main-layout>* {
+    grid-column: 2;
+}
+
+.main-layout .full {
+    grid-column: 1/-1;
+}
+
+.meme-editor, .img-gallery{
+    grid-row: 2;
+}
+
+.closed {
+    opacity: 0;
+    z-index: -1;
+}

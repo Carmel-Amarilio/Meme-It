@@ -1,0 +1,15 @@
+:root {
+    /* pallete */
+    --clrTextBase: #e0e0e0;
+    --headerBgClr: rgb(106, 114, 119);
+    --footerBgClr: #c93636;
+    --galleryClr: rgb(44, 43, 43);
+    --hoverClr: rgb(0,91,161);
+
+    /* var */
+    --mainContentSize: 90vw;
+    --minImgSize: 200px;
+    --headerHeight: 80px;
+    --headerMarg: 30px
+}
+

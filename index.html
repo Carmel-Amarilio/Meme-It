@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/3b18ac9277.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meme It</span></title>
+</head>
+
+<body class="main-layout" onload="onInIt()">
+    <header class="main-header full main-layout">
+        <div class="flex space-between align-center">
+            <div class="logo">Meme<span>It</div>
+            <nav class="main-nav-container">
+                <ul class="main-nav flex ">
+                    <li onclick="onGallery()">Gallery</li>
+                    <li>Memes</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+            <button class="menu-icone" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main class="meme-editor closed">
+        <section class="main-canvas">
+            <canvas width="500" height="500"></canvas>
+        </section>
+
+        <section class="main-editor">
+            <input oninput="onSetLineTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
+            <div class="txt-style">
+                <div class="flex justify-center">
+                    <button onclick="onIncTxt(5)" class="increase"><i class="fa-solid fa-a"></i><span><i
+                                class="fa-solid fa-plus"></i></span></button>
+                    <button onclick="onIncTxt(-5)" class="reduce"><i class="fa-solid fa-a"></i><span><i
+                                class="fa-solid fa-minus"></i></span></button>
+                </div>
+                <div>
+                    <button onclick="onAlignTxt('end')" class="left"><i class="fa-solid fa-align-left"></i></button>
+                    <button onclick="onAlignTxt('center')" class="center"><i class="fa-solid fa-align-justify"></i></button>
+                    <button onclick="onAlignTxt('start')" class="right"><i class="fa-solid fa-align-right"></i></button>
+                </div>
+                <div class="flex space-between">
+                    <select class="set-font" onchange="onSetFont(this)">
+                        <option value="Arial">Arial</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                    <article>
+                        <input required type="color" id="color-text" class="color-text" value="#ff0000"
+                            oninput="onColor(this.value)" />
+                    </article>
+                </div>
+            </div>
+            <footer>
+                <nav class="sher-download-bar">
+                    <button class="facebook-bnt" onclick="onUploadImg()">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+                    <button class="save"><i class="fa-regular fa-floppy-disk"></i></button>
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><i
+                            class="fa-solid fa-download"></i></a>
+                </nav>
+            </footer>
+        </section>
+    </main>
+
+    <main class="img-gallery "></main>
+
+    <footer class="main-footer full">
+        <small>all rights reserved to Carmel Amarilio &copy; 2023</small>
+    </footer>
+
+    <script src="js/service/util.service.js"></script>
+    <script src="js/service/meme-gallery.service.js"></script>
+    <script src="js/service/meme-editor.service.js"></script>
+    <!-- <script src="js/service/upload-from-local.js"></script>
+    <script src="js/service/sharing-on-facebook.js"></script> -->
+    <script src="js/control/meme-gallery.control.js"></script>
+    <script src="js/control/meme-editor.control.js"></script>
+
+</body>
+
+</html>
