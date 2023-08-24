@@ -17,7 +17,7 @@ function ReaderGall() {
 
 function onRandMeme() {
     const imgs = getImgs()
-    const randNum = getRandomIntInclusive(0, imgs.length)
+    const randNum = getRandomIntInclusive(1, imgs.length)
     const url = `img/${randNum}.jpg`
     const img = `<img src="${url}" alt="#"">`
     onImg(url)
