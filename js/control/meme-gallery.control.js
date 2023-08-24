@@ -21,7 +21,6 @@ function ReaderGall() {
     document.querySelector('.filter').innerHTML = filterHTML
 
     const commonWords = getCommonWord()
-    console.log(commonWords);
     let commonWordsHTML = ''
     commonWords.forEach((word) => {commonWordsHTML +=
         `<span onclick="filter('${word[0]}')" style="font-size: ${word[1]*2+16}px;">${word[0]}</span>`
@@ -31,8 +30,10 @@ function ReaderGall() {
 }
 
 function onSetFilter(elFilter){
-    filterBay(elFilter.value)
+    const val = elFilter.value
+    filterBay(val)
     ReaderGall()
+    document.querySelector('.filter').value = val
 }
 function filter(word){
     filterBay(word)

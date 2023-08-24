@@ -18,7 +18,7 @@ function readerMeme(){
 
 function onMeme(imgURL, memeIndex){
     document.querySelector('.meme-editor').classList.remove('closed')
-    document.querySelector('.img-gallery').classList.add('closed')
+    document.querySelector('.main-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')
     loadMeme(imgURL, memeIndex)
 }
