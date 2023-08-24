@@ -32,3 +32,9 @@
     background-color: var(--footerBgClr);
     /* background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210)); */
 }
+
+.Flexible{
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
+}

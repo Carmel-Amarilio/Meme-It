@@ -25,7 +25,7 @@ function getFunnyTxt(){
         ["When your code works, but", "you have no idea why."],
         ["When someone asks if you're a", "front-end or back-end developer."],
         ["When the intern fixes a bug", "you've been struggling with for hours."],
-        ["When the boss says, 'We need to talk about", "code quality.'"],
+        ["When the boss says,", " 'We need to talk aboutcode quality.'"],
         ["When your code compiles with no errors,", "but still doesn't work."]
     ]
     const randLines = memeLines[getRandomIntInclusive(0, 9)]

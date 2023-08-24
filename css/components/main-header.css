@@ -4,7 +4,7 @@
     background-color: var(--headerBgClr);
 }
 
-.main-header .logo {
+.logo {
     font-family: BebasNeue;
     border-radius: 10px;
     padding: 5px;
@@ -15,12 +15,12 @@
     cursor: pointer;
     
 }
-.main-header .logo:hover {
+.logo:hover {
     scale: 1.1;
 }
 
 
-.main-header .logo span {
+.logo span {
     padding: 5px;
     color: rgb(0, 0, 0);
 }

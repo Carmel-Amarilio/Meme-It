@@ -22,6 +22,7 @@ function loadMeme(emgURL, memeIndex) {
 function getRandText(){
     loadRandText()
     openMeme()
+    updateTools()
 }
 
 function resizeCanvas() {

@@ -5,8 +5,8 @@ let gMeme = {}
 function resatMeme() {
     gMeme = {
         text: [
-            { txt: 'Funny Text', color: "blue", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 0 } },
-            { txt: 'Funny Text', color: "blue", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 300 } }
+            { txt: 'Funny Text', color: '#176ED2', inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 0 } },
+            { txt: 'Funny Text', color: '#176ED2', inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 300 } }
         ]
     }
 }
