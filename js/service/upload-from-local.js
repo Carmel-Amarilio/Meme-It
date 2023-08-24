@@ -1,6 +1,6 @@
 
 function onImgInput(ev) {
-    loadImageFromInput(ev, onImg)
+    loadImageFromInput(ev, onUploadImg)
 }
 
 // Read the file from the input

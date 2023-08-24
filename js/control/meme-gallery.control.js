@@ -49,6 +49,10 @@ function onImg(imgURL) {
     inEditor(imgURL)
 }
 
+function onUploadImg(img){
+    onImg(img.src)
+}
+
 function toggleMenu() {
     document.querySelector('.main-nav-container').classList.toggle('open');
 }
