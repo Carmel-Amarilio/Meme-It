@@ -20,6 +20,7 @@
     grid-column: 3;
     background-color: rgb(59, 59, 59);
     border-radius: 30px;
+    width: minmax(1fr, 400px);
 }
 
 .main-editor button {

@@ -16,7 +16,7 @@
             <nav class="main-nav-container">
                 <ul class="main-nav flex ">
                     <li onclick="onGallery()">Gallery</li>
-                    <li>Memes</li>
+                    <li onclick="onMemes()">Memes</li>
                     <li>About</li>
                 </ul>
             </nav>
@@ -51,7 +51,6 @@
                     <select class="set-font" onchange="onSetFont(this)">
                         <option value="Arial">Arial</option>
                         <option value="Georgia">Georgia</option>
-                        <option value="Verdana">Verdana</option>
                         <option value="Impact">Impact</option>
                         <option value="Times New Roman">Times New Roman</option>
                     </select>
@@ -93,9 +92,10 @@
 
     <script src="js/service/upload-from-local.js"></script>
     <script src="js/service/sharing-on-facebook.js"></script>
-    
+
     <script src="js/control/meme-gallery.control.js"></script>
     <script src="js/control/meme-editor.control.js"></script>
+    <script src="js/control/save-memes.control.js"></script>
 
 </body>
 

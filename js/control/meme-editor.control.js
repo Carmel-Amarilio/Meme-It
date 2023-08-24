@@ -6,15 +6,19 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
 function inEditor(elImg) {
+    resatMeme()
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
-
     addListeners()
-
     updateCurrMemeImg(elImg)
     resizeCanvas()
 }
 
+function loadMeme(elImg, memeIndex){
+    inEditor(elImg)
+    loadTxtMeme(memeIndex)
+    openMeme()
+}
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.main-canvas')
@@ -27,22 +31,28 @@ function resizeCanvas() {
 function openMeme() {
     const meme = getMeme()
     gCtx.drawImage(meme.img, 0, 0, gCanvas.width, gCanvas.height)
-    meme.text.forEach(txt => drawText(txt))
+    meme.text.forEach(text => drawText(text))
+    addBorderToTxt()
 }
 
 function drawText({ txt, color, inc, font, align, pos }) {
     const size = gCanvas.width / 11 + inc
-
-    // const boxSizeX = txt.length * (size/1.8) 
-    // const boxSizeY = size
-    // gCtx.strokeRect(pos.x+gCanvas.width/2-(boxSizeX/2), pos.y + boxSizeY/2, boxSizeX, boxSizeY)
-
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y + size / 2 + 20)
+}
+
+function addBorderToTxt() {
+    const meme = getMeme()
+    if(gMeme.text.length<=0)return
+    const {txt, inc, pos} = meme.text[gCurrTxt.id]
+    const size = gCanvas.width / 11 + inc
+    const boxSizeX = txt.length * size 
+    const boxSizeY = size 
+    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y + boxSizeY / 2)- inc/2, boxSizeX, boxSizeY)
 }
 
 function onSetTxt(ev) {
@@ -61,6 +71,7 @@ function onAddTxt() {
 
 function onDeleteTxt() {
     deleteTxt(gCurrTxt.id)
+    gCurrTxt.id = 0
     openMeme()
 }
 
@@ -110,6 +121,8 @@ function onDown(ev) {
     gCurrTxt.id = txtId - 1
     gCurrTxt.isMove = true
     updateTools()
+    openMeme()
+    
 }
 function onMove(ev) {
     if (!gCurrTxt.isMove) return
@@ -118,7 +131,9 @@ function onMove(ev) {
     pos.y = pos.y - 20
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
+    
 }
+
 function onUp() {
     gCurrTxt.isMove = false
 }
@@ -150,20 +165,22 @@ function getTxtByPos(pos) {
     return index
 }
 
-function updateTools(){
+function updateTools() {
     const meme = getMeme()
-    const {txt, color, font} = meme.text[gCurrTxt.id]
+    const { txt, color, font } = meme.text[gCurrTxt.id]
     document.querySelector('.input-txt').value = txt
     document.querySelector('.color-text').value = color
     document.querySelector('.set-font').value = font
 
 }
 
-function onSaveMeme(){
-    saveMeme()
+function onSaveMeme() {
+    const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    saveMeme(imgContent)
 }
 
 function downloadImg(elLink) {
     const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    console.log(imgContent);
     elLink.href = imgContent
 }
