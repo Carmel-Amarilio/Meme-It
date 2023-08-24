@@ -6,9 +6,9 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
 function inEditor(imgURL) {
-    resatMeme()
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
+    resatMeme(gCanvas.height)
     addListeners()
     updateCurrMemeImg(imgURL)
     resizeCanvas()
@@ -19,7 +19,7 @@ function loadMeme(emgURL, memeIndex) {
     loadTxtMeme(memeIndex)
     openMeme()
 }
-function getRandText(){
+function getRandText() {
     loadRandText()
     openMeme()
     updateTools()
@@ -43,23 +43,23 @@ function openMeme() {
 }
 
 function drawText({ txt, color, inc, font, align, pos }) {
-    const size = gCanvas.width / 11 + inc
+
+    const size = gCanvas.width / 11 * inc
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
-
-    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y + size / 2 + 20)
+    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5   )
 }
 
 function addBorderToTxt() {
     const meme = getMeme()
     if (!meme.text.length) return
     const { txt, inc, pos } = meme.text[gCurrTxt.id]
-    const size = gCanvas.width / 11 + inc
+    const size = gCanvas.width / 11 * inc
     const boxSizeX = txt.length * size
     const boxSizeY = size
-    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y + boxSizeY / 2) - inc / 2, boxSizeX, boxSizeY)
+    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y * gCanvas.height /5) - size/2 , boxSizeX, boxSizeY)
 }
 
 function onSetTxt(ev) {
@@ -72,7 +72,7 @@ function onSetTxt(ev) {
 }
 
 function onAddTxt() {
-    addTxt()
+    addTxt(gCanvas.height)
     openMeme()
 }
 
@@ -135,7 +135,7 @@ function onMove(ev) {
     if (!gCurrTxt.isMove) return
     const pos = getEvPos(ev)
     pos.x = pos.x - gCanvas.width / 2
-    pos.y = pos.y - 20
+    pos.y = (pos.y / gCanvas.height /5) *25
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
 
@@ -166,7 +166,7 @@ function getTxtByPos(pos) {
     let index = false
     meme.text.forEach((txt, i) => {
         const txtPosX = txt.pos.x + gCanvas.width
-        const txtPosY = txt.pos.y + gCanvas.width / 11 + txt.inc + 20
+        const txtPosY = txt.pos.y * gCanvas.height /5 + txt.inc + 20
         if (pos.x < txtPosX && pos.y < txtPosY && pos.y > txtPosY - 57) index = i + 1
     });
     return index

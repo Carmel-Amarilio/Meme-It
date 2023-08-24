@@ -5,8 +5,8 @@ let gMeme = {}
 function resatMeme() {
     gMeme = {
         text: [
-            { txt: 'Funny Text', color: '#176ED2', inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 0 } },
-            { txt: 'Funny Text', color: '#176ED2', inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 300 } }
+            { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: .5} },
+            { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 4.5} }
         ]
     }
 }
@@ -19,8 +19,8 @@ function loadRandText() {
     const {txt1, txt2} = getFunnyTxt()
     gMeme.text[0].txt =txt1
     gMeme.text[1].txt =txt2
-    gMeme.text[0].inc =-15
-    gMeme.text[1].inc =-15
+    gMeme.text[0].inc = 0.5
+    gMeme.text[1].inc = 0.5
 }
 
 function getMeme() {
@@ -28,7 +28,7 @@ function getMeme() {
 }
 
 function addTxt() {
-    const newTxt = { txt: 'Funny Text', color: '#000001', inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 200 } }
+    const newTxt = { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 2} }
     gMeme.text.push(newTxt)
 }
 
