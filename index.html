@@ -35,19 +35,20 @@
                 <button onclick="onAddTxt()" class="add-txt"><i class="fa-regular fa-square-plus"></i></button>
                 <button onclick="onDeleteTxt()" class="delete-txt"><i class="fa-solid fa-trash"></i></i></button>
             </section>
-            <div class="txt-style">
-                <div class="flex justify-center">
+            <section class="txt-style">
+                <section class="flex justify-center">
                     <button onclick="onIncTxt(.1)" class="increase"><i class="fa-solid fa-a"></i><span><i
                                 class="fa-solid fa-plus"></i></span></button>
                     <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
                                 class="fa-solid fa-minus"></i></span></button>
-                </div>
-                <div>
+                </section>
+                <section>
                     <button onclick="onAlignTxt('end')" class="left"><i class="fa-solid fa-align-left"></i></button>
-                    <button onclick="onAlignTxt('center')" class="center"><i class="fa-solid fa-align-justify"></i></button>
+                    <button onclick="onAlignTxt('center')" class="center"><i
+                            class="fa-solid fa-align-justify"></i></button>
                     <button onclick="onAlignTxt('start')" class="right"><i class="fa-solid fa-align-right"></i></button>
-                </div>
-                <div class="flex space-between">
+                </section>
+                <section class="flex space-between">
                     <select class="set-font" onchange="onSetFont(this)">
                         <option value="Arial">Arial</option>
                         <option value="Georgia">Georgia</option>
@@ -58,8 +59,8 @@
                         <input required type="color" id="color-text" class="color-text" value="#ff0000"
                             oninput="onColor(this.value)" />
                     </article>
-                </div>
-            </div>
+                </section>
+            </section>
             <footer>
                 <nav class="sher-download-bar">
                     <button class="facebook-bnt" onclick="onUploadImg()">
@@ -73,15 +74,23 @@
         </section>
     </main>
 
-    <main class="img-gallery "></main>
-    <div onclick="onRandMeme()" class="logo Flexible ">Flexible<span>It</div>
+    <main class="main-gallery ">
+        <section class=" flex space-between align-center">
+            <select class="filter" onchange="onSetFilter(this)"></select>
+            <div class="common-words">
+            </div>
+        </section>
+        <section class="img-gallery "></section>
+        <div onclick="onRandMeme()" class="logo Flexible ">Flexible<span>It</div>
+        <section class="file-input">
+            <label for="file-input">
+                <img src="img/add-img.png" alt="#">
+            </label>
+            <input type="file" id="file-input" class="file-input" name="image" onchange="onImgInput(event)"
+                accept="image/*" style="display: none;" />
+        </section>
+    </main>
 
-    <section class="file-input">
-        <label for="file-input">
-            <img src="img/add-img.png" alt="#">
-        </label>
-        <input type="file" id="file-input" class="file-input" name="image" onchange="onImgInput(event)"accept="image/*" style="display: none;" />
-    </section>
 
     <footer class="main-footer full">
         <small>all rights reserved to Carmel Amarilio &copy; 2023</small>

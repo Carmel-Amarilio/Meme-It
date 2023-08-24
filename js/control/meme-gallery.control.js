@@ -11,8 +11,32 @@ function ReaderGall() {
     imgs.forEach(img => {gallHTML +=
         `<img src="${img.url}" alt="#" onclick="onImg('${img.url}')">`
     })
-
     document.querySelector('.img-gallery').innerHTML = gallHTML
+
+    const keywords = getKeywords()
+    let filterHTML = `<option value="">All</option>`
+    keywords.forEach(word => {filterHTML +=
+        `<option value="${word}">${word}</option>`
+    })
+    document.querySelector('.filter').innerHTML = filterHTML
+
+    const commonWords = getCommonWord()
+    console.log(commonWords);
+    let commonWordsHTML = ''
+    commonWords.forEach((word) => {commonWordsHTML +=
+        `<span onclick="filter('${word[0]}')" style="font-size: ${word[1]*2+16}px;">${word[0]}</span>`
+    })
+    document.querySelector('.common-words').innerHTML = commonWordsHTML
+    
+}
+
+function onSetFilter(elFilter){
+    filterBay(elFilter.value)
+    ReaderGall()
+}
+function filter(word){
+    filterBay(word)
+    ReaderGall()
 }
 
 function onRandMeme() {
@@ -26,7 +50,7 @@ function onRandMeme() {
 
 
 function onGallery(){
-    document.querySelector('.img-gallery').classList.remove('closed')
+    document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.remove('closed')
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
@@ -34,7 +58,7 @@ function onGallery(){
 }
 
 function onMemes(){
-    document.querySelector('.img-gallery').classList.remove('closed')
+    document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
@@ -43,7 +67,7 @@ function onMemes(){
 
 function onImg(imgURL) {
     document.querySelector('.meme-editor').classList.remove('closed')
-    document.querySelector('.img-gallery').classList.add('closed')
+    document.querySelector('.main-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
     inEditor(imgURL)

@@ -1,8 +1,34 @@
+.main-gallery .filter{
+    padding: 10px;
+    margin-block: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-inline-start: 10px;
+    background-color: var(--galleryClr);
+    border: 0;
+    color: white;
+}
+
+.main-gallery .common-words{
+    padding: 10px;
+    margin-inline-end: 10px;
+    border-radius: 10px;
+    background-color: var(--galleryClr);
+    opacity: .7;
+}
+.main-gallery .common-words span{
+    margin-inline: 5px;
+    cursor: pointer;
+}
+.main-gallery .common-words span:hover{
+    color: yellow;
+}
+
 .img-gallery {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--minImgSize), 1fr));
     background-color: var(--galleryClr);
     background-size: cover;
-    grid-template-columns: repeat(auto-fit, minmax(var(--minImgSize), 1fr));
     gap: 30px;
     padding: 50px;
     border-radius: 20px;

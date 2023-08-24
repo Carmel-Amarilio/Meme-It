@@ -33,3 +33,18 @@ function getFunnyTxt(){
     const txt2 = randLines[1]
     return {txt1, txt2}
 }
+
+function isEmptyObject(obj) {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function getTop4(data){
+    const entries = Object.entries(data)
+    entries.sort((a, b) => b[1] - a[1])
+    return entries.slice(0, 4)
+}
