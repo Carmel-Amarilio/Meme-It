@@ -1,4 +1,4 @@
-function onUploadImg() {
+function onUploadImgToFacebook() {
     // Gets the image from the canvas
     const imgDataUrl = gCanvas.toDataURL('image/jpeg') 
 
