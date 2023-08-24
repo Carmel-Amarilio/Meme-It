@@ -5,15 +5,22 @@ let gMeme = {}
 function resatMeme() {
     gMeme = {
         text: [
-            { txt: 'Funny Text', color: "#000002", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 0 } },
-            { txt: 'Funny Text', color: "#000001", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 300 } }
+            { txt: 'Funny Text', color: "blue", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 0 } },
+            { txt: 'Funny Text', color: "blue", inc: 0, font: 'Arial', align: 'center', pos: { x: 0, y: 300 } }
         ]
     }
 }
 function loadTxtMeme(memeIndex){
     const memes = loadFromStorage('memesDB')
-    console.log(memes[memeIndex].text);
     gMeme.text = memes[memeIndex].text
+}
+
+function loadRandText() {
+    const {txt1, txt2} = getFunnyTxt()
+    gMeme.text[0].txt =txt1
+    gMeme.text[1].txt =txt2
+    gMeme.text[0].inc =-15
+    gMeme.text[1].inc =-15
 }
 
 function getMeme() {
@@ -29,8 +36,8 @@ function deleteTxt(index) {
     gMeme.text.splice(index, 1)
 }
 
-function updateCurrMemeImg(elImg) {
-    gMeme.img = elImg
+function updateCurrMemeImg(imgURL) {
+    gMeme.imgURL = imgURL
 }
 
 function updateCurrMemeTxt(txt, index) {

@@ -7,19 +7,18 @@ function inMeme(){
 
 function readerMeme(){
     const memes = loadFromStorage('memesDB')
-    console.log(memes);
-    if(!memes) return
     let gallHTML = ''
-    memes.forEach((meme, index) => {gallHTML +=
-        ` <img src="${meme.imgContent}" alt="#" onclick="onMeme(this, ${index})">`
+    if(!memes) gallHTML = 'no meme saved'
+    else memes.forEach((meme, index) => {gallHTML +=
+        ` <img src="${meme.imgContent}" alt="#" onclick="onMeme('${meme.imgURL}', ${index})">`
     })
 
     document.querySelector('.img-gallery').innerHTML = gallHTML
 }
 
-function onMeme(elImg, memeIndex){
+function onMeme(imgURL, memeIndex){
     document.querySelector('.meme-editor').classList.remove('closed')
     document.querySelector('.img-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')
-    loadMeme(elImg, memeIndex)
+    loadMeme(imgURL, memeIndex)
 }

@@ -5,18 +5,22 @@ let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
-function inEditor(elImg) {
+function inEditor(imgURL) {
     resatMeme()
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     addListeners()
-    updateCurrMemeImg(elImg)
+    updateCurrMemeImg(imgURL)
     resizeCanvas()
 }
 
-function loadMeme(elImg, memeIndex){
-    inEditor(elImg)
+function loadMeme(emgURL, memeIndex) {
+    inEditor(emgURL)
     loadTxtMeme(memeIndex)
+    openMeme()
+}
+function getRandText(){
+    loadRandText()
     openMeme()
 }
 
@@ -30,7 +34,9 @@ function resizeCanvas() {
 
 function openMeme() {
     const meme = getMeme()
-    gCtx.drawImage(meme.img, 0, 0, gCanvas.width, gCanvas.height)
+    const img = new Image();
+    img.src = meme.imgURL;
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     meme.text.forEach(text => drawText(text))
     addBorderToTxt()
 }
@@ -47,12 +53,12 @@ function drawText({ txt, color, inc, font, align, pos }) {
 
 function addBorderToTxt() {
     const meme = getMeme()
-    if(gMeme.text.length<=0)return
-    const {txt, inc, pos} = meme.text[gCurrTxt.id]
+    if (!meme.text.length) return
+    const { txt, inc, pos } = meme.text[gCurrTxt.id]
     const size = gCanvas.width / 11 + inc
-    const boxSizeX = txt.length * size 
-    const boxSizeY = size 
-    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y + boxSizeY / 2)- inc/2, boxSizeX, boxSizeY)
+    const boxSizeX = txt.length * size
+    const boxSizeY = size
+    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y + boxSizeY / 2) - inc / 2, boxSizeX, boxSizeY)
 }
 
 function onSetTxt(ev) {
@@ -122,7 +128,7 @@ function onDown(ev) {
     gCurrTxt.isMove = true
     updateTools()
     openMeme()
-    
+
 }
 function onMove(ev) {
     if (!gCurrTxt.isMove) return
@@ -131,7 +137,7 @@ function onMove(ev) {
     pos.y = pos.y - 20
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
-    
+
 }
 
 function onUp() {
@@ -175,12 +181,22 @@ function updateTools() {
 }
 
 function onSaveMeme() {
+    removeBorder()
     const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     saveMeme(imgContent)
 }
 
 function downloadImg(elLink) {
+    removeBorder()
     const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     console.log(imgContent);
     elLink.href = imgContent
+}
+
+function removeBorder() {
+    const meme = getMeme()
+    const img = new Image();
+    img.src = meme.imgURL;
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    meme.text.forEach(text => drawText(text))
 }

@@ -12,7 +12,14 @@
     padding-inline-end: 0px;
     font-size: 40px;
     background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210));
+    cursor: pointer;
+    
 }
+.main-header .logo:hover {
+    scale: 1.1;
+}
+
+
 .main-header .logo span {
     padding: 5px;
     color: rgb(0, 0, 0);
