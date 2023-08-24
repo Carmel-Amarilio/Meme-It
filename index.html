@@ -32,6 +32,7 @@
         <section class="main-editor">
             <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
             <section class="flex justify-center">
+                <button onclick="onCurrTxt()" class="current-txt"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
                 <button onclick="onAddTxt()" class="add-txt"><i class="fa-regular fa-square-plus"></i></button>
                 <button onclick="onDeleteTxt()" class="delete-txt"><i class="fa-solid fa-trash"></i></i></button>
             </section>
@@ -42,7 +43,7 @@
                     <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
                                 class="fa-solid fa-minus"></i></span></button>
                 </section>
-                <section>
+                <section class="flex justify-center">
                     <button onclick="onAlignTxt('end')" class="left"><i class="fa-solid fa-align-left"></i></button>
                     <button onclick="onAlignTxt('center')" class="center"><i
                             class="fa-solid fa-align-justify"></i></button>
@@ -55,9 +56,15 @@
                         <option value="Impact">Impact</option>
                         <option value="Times New Roman">Times New Roman</option>
                     </select>
-                    <article>
+                    <article class="color">
+                        <label for="color-text"><i class="fa-solid fa-fill-drip"></i></label>
                         <input required type="color" id="color-text" class="color-text" value="#ff0000"
-                            oninput="onColor(this.value)" />
+                            oninput="onColorTxt(this.value)" />
+                    </article>
+                    <article class="color">
+                        <label for="color-text-around"><i class="fa-solid fa-paintbrush"></i></label>
+                        <input required type="color" id="color-text-around" class="color-text-around" value="#000000"
+                            oninput="onColorTxtAround(this.value)" />
                     </article>
                 </section>
             </section>

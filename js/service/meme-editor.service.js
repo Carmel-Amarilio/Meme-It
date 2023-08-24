@@ -5,8 +5,8 @@ let gMeme = {}
 function resatMeme() {
     gMeme = {
         text: [
-            { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: .5} },
-            { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 4.5} }
+            { txt: 'Funny Text', color: '#176ED2', colorAround: '#000000', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: .5} },
+            { txt: 'Funny Text', color: '#176ED2', colorAround: '#000000', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 4.5} }
         ]
     }
 }
@@ -28,7 +28,7 @@ function getMeme() {
 }
 
 function addTxt() {
-    const newTxt = { txt: 'Funny Text', color: '#176ED2', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 2} }
+    const newTxt = { txt: 'Funny Text', color: '#176ED2', colorAround: '#000000' ,inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 2} }
     gMeme.text.push(newTxt)
 }
 
@@ -58,6 +58,10 @@ function updateCurrMemeTxtAlign(align, index) {
 function updateCurrMemeTxtColor(color, index) {
     if (gMeme.text.length <= 0) return
     gMeme.text[index].color = color
+}
+function updateCurrMemeTxtColorAround(color, index) {
+    if (gMeme.text.length <= 0) return
+    gMeme.text[index].colorAround = color
 }
 
 function updateCurrMemeTxtFont(font, index) {

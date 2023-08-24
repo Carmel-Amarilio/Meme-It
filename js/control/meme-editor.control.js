@@ -42,14 +42,16 @@ function openMeme() {
     addBorderToTxt()
 }
 
-function drawText({ txt, color, inc, font, align, pos }) {
+function drawText({ txt, color,colorAround, inc, font, align, pos }) {
 
     const size = gCanvas.width / 11 * inc
     gCtx.fillStyle = color
+    gCtx.strokeStyle = colorAround
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5   )
+    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5 )
+    gCtx.strokeText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5)
 }
 
 function addBorderToTxt() {
@@ -71,6 +73,12 @@ function onSetTxt(ev) {
     openMeme()
 }
 
+function onCurrTxt(){
+    const meme = getMeme()
+    if(meme.text.length-1 <= gCurrTxt.id) gCurrTxt.id = 0
+    else gCurrTxt.id++
+    openMeme()
+}
 function onAddTxt() {
     addTxt(gCanvas.height)
     openMeme()
@@ -92,8 +100,12 @@ function onAlignTxt(align) {
     openMeme()
 }
 
-function onColor(color) {
+function onColorTxt(color) {
     updateCurrMemeTxtColor(color, gCurrTxt.id)
+    openMeme()
+}
+function onColorTxtAround(color) {
+    updateCurrMemeTxtColorAround(color, gCurrTxt.id)
     openMeme()
 }
 
@@ -174,9 +186,10 @@ function getTxtByPos(pos) {
 
 function updateTools() {
     const meme = getMeme()
-    const { txt, color, font } = meme.text[gCurrTxt.id]
+    const { txt, color,colorAround, font } = meme.text[gCurrTxt.id]
     document.querySelector('.input-txt').value = txt
     document.querySelector('.color-text').value = color
+    document.querySelector('.color-text-around').value = colorAround
     document.querySelector('.set-font').value = font
 
 }

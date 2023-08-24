@@ -32,8 +32,14 @@
     margin-inline: 5px;
 }
 
-.main-editor .add-txt, .delete-txt{
+.main-editor .add-txt, .delete-txt, .current-txt{
     font-size: 25px;
+}
+.main-editor .current-txt{
+    transform: rotate(90deg);
+}
+.main-editor .current-txt:hover{
+    background-color: rgb(70, 120, 214);
 }
 
 .main-editor .add-txt:hover{
@@ -63,7 +69,14 @@
 .main-editor .txt-style .set-font{
     border-radius: 5px;
 }
-.main-editor .txt-style .color-text{
+.color{
+margin-inline: 5px;
+}
+.color label{
+    font-size: 25px;
+    color: black;
+}
+.main-editor .txt-style .color-text, .color-text-around{
    width: 30px;
    height: 30px;
 }
