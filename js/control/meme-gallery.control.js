@@ -53,6 +53,7 @@ function onRandMeme() {
 function onGallery(){
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.remove('closed')
+    document.querySelector('.filter-sec').classList.remove('closed')
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
     onInIt()
@@ -62,6 +63,7 @@ function onMemes(){
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.meme-editor').classList.add('closed')
+    document.querySelector('.filter-sec').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
     inMeme()
 }
