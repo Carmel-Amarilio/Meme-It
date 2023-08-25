@@ -35,14 +35,15 @@ function openMeme() {
     const meme = getMeme()
     const img = new Image();
     img.src = meme.imgURL;
-    console.log(img,img.naturalHeight, img.naturalWidth, gCanvas.width);
-    gCanvas.height = (img.naturalHeight/ img.naturalWidth* gCanvas.width)
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    meme.text.forEach(text => drawText(text))
-    addBorderToTxt()
+    img.onload = function() {
+        gCanvas.height = (img.naturalHeight / img.naturalWidth * gCanvas.width)
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        meme.text.forEach(text => drawText(text))
+        addBorderToTxt()
+      };
 }
 
-function drawText({ txt, color,colorAround, inc, font, align, pos }) {
+function drawText({ txt, color, colorAround, inc, font, align, pos }) {
 
     const size = gCanvas.width / 11 * inc
     gCtx.fillStyle = color
@@ -50,8 +51,8 @@ function drawText({ txt, color,colorAround, inc, font, align, pos }) {
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5 )
-    gCtx.strokeText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height /5)
+    gCtx.fillText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height / 5)
+    gCtx.strokeText(txt, pos.x + gCanvas.width / 2, pos.y * gCanvas.height / 5)
 }
 
 function addBorderToTxt() {
@@ -61,7 +62,7 @@ function addBorderToTxt() {
     const size = gCanvas.width / 11 * inc
     const boxSizeX = txt.length * size
     const boxSizeY = size
-    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y * gCanvas.height /5) - size/2 , boxSizeX, boxSizeY)
+    gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y * gCanvas.height / 5) - size / 2, boxSizeX, boxSizeY)
 }
 
 function onSetTxt(ev) {
@@ -73,9 +74,9 @@ function onSetTxt(ev) {
     openMeme()
 }
 
-function onCurrTxt(){
+function onCurrTxt() {
     const meme = getMeme()
-    if(meme.text.length-1 <= gCurrTxt.id) gCurrTxt.id = 0
+    if (meme.text.length - 1 <= gCurrTxt.id) gCurrTxt.id = 0
     else gCurrTxt.id++
     openMeme()
 }
@@ -114,7 +115,7 @@ function onSetFont(elFont) {
     openMeme()
 }
 
-function onEmoji(emoji){
+function onEmoji(emoji) {
     onAddTxt(emoji)
 }
 
@@ -151,7 +152,7 @@ function onMove(ev) {
     if (!gCurrTxt.isMove) return
     const pos = getEvPos(ev)
     pos.x = pos.x - gCanvas.width / 2
-    pos.y = (pos.y / gCanvas.height /5) *25
+    pos.y = (pos.y / gCanvas.height / 5) * 25
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
     openMeme()
 
@@ -182,7 +183,7 @@ function getTxtByPos(pos) {
     let index = false
     meme.text.forEach((txt, i) => {
         const txtPosX = txt.pos.x + gCanvas.width
-        const txtPosY = txt.pos.y * gCanvas.height /5 + txt.inc + 20
+        const txtPosY = txt.pos.y * gCanvas.height / 5 + txt.inc + 20
         if (pos.x < txtPosX && pos.y < txtPosY && pos.y > txtPosY - 57) index = i + 1
     });
     return index
@@ -190,7 +191,7 @@ function getTxtByPos(pos) {
 
 function updateTools() {
     const meme = getMeme()
-    const { txt, color,colorAround, font } = meme.text[gCurrTxt.id]
+    const { txt, color, colorAround, font } = meme.text[gCurrTxt.id]
     document.querySelector('.input-txt').value = txt
     document.querySelector('.color-text').value = color
     document.querySelector('.color-text-around').value = colorAround
