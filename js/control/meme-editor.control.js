@@ -14,8 +14,8 @@ function inEditor(imgURL) {
     resizeCanvas()
 }
 
-function loadMeme(emgURL, memeIndex) {
-    inEditor(emgURL)
+function loadMeme(imgURL, memeIndex) {
+    inEditor(imgURL)
     loadTxtMeme(memeIndex)
     openMeme()
 }
@@ -27,9 +27,7 @@ function getRandText() {
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.main-canvas')
-    elContainer.style.height = elContainer.clientWidth + 'px'
     gCanvas.width = elContainer.clientWidth
-    gCanvas.height = elContainer.clientHeight
     openMeme()
 }
 
@@ -37,6 +35,7 @@ function openMeme() {
     const meme = getMeme()
     const img = new Image();
     img.src = meme.imgURL;
+    gCanvas.height = img.naturalHeight/ img.naturalWidth* gCanvas.width
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     meme.text.forEach(text => drawText(text))
     addBorderToTxt()

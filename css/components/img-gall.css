@@ -27,6 +27,7 @@
 .img-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--minImgSize), 1fr));
+    align-items: center;
     background-color: var(--galleryClr);
     background-size: cover;
     gap: 30px;

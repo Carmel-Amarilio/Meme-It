@@ -4,7 +4,7 @@ let id = 1
 let gKeyFilter = ''
 
 const gImgs = [
-    { id: id++, url: 'img/1.jpg', keywords: ['funny', 'Tramp', 'liders'] },
+    { id: id++, url: 'img/1.jpg', keywords: ['funny', 'Trump', 'liders'] },
     { id: id++, url: 'img/2.jpg', keywords: ['funny', 'dog'] },
     { id: id++, url: 'img/3.jpg', keywords: ['funny', 'baby', 'dog'] },
     { id: id++, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
@@ -18,6 +18,12 @@ const gImgs = [
     { id: id++, url: 'img/12.jpg', keywords: ['funny', 'liders'] },
     { id: id++, url: 'img/13.jpg', keywords: ['funny', 'liders'] },
     { id: id++, url: 'img/14.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/15.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/16.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/17.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/18.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/19.jpg', keywords: ['funny',] },
+    { id: id++, url: 'img/20.jpg', keywords: ['funny',] },
 ]
 let gKeyWordsMap = loadFromStorage('keyWordsMap')
 if(!gKeyWordsMap){
