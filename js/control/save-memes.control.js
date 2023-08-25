@@ -8,7 +8,7 @@ function inMeme(){
 function readerMeme(){
     const memes = loadFromStorage('memesDB')
     let gallHTML = ''
-    if(!memes) gallHTML = 'no meme saved'
+    if(!memes||memes.length === 0) gallHTML = 'no meme saved'
     else memes.forEach((meme, index) => {gallHTML +=
         `<div >
         <img src="${meme.imgContent}" alt="#" onclick="onMeme('${meme.imgURL}', ${index})">

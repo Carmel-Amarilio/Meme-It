@@ -12,12 +12,14 @@ function inEditor(imgURL) {
     addListeners()
     updateCurrMemeImg(imgURL)
     resizeCanvas()
+    updateTools()
 }
 
 function loadMeme(imgURL, memeIndex) {
     inEditor(imgURL)
     loadTxtMeme(memeIndex)
     openMeme()
+    updateTools()
 }
 function getRandText() {
     loadRandText()
