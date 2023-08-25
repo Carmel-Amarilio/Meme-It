@@ -26,9 +26,18 @@ function getFunnyTxt(){
         ["When someone asks if you're a", "front-end or back-end developer."],
         ["When the intern fixes a bug", "you've been struggling with for hours."],
         ["When the boss says,", " 'We need to talk aboutcode quality.'"],
-        ["When your code compiles with no errors,", "but still doesn't work."]
+        ["When your code compiles with no errors,", "but still doesn't work."], 
+        ["That feeling when you finally", "understand a complex algorithm."],
+        ["When your code passes all the tests", "except the one your boss runs."],
+        ["When your client asks for a feature", "you've already implemented."],
+        ["When your design looks pixel-perfect", "on your screen, but not on theirs."],
+        ["When you're debugging and find out", "the problem was a missing semicolon."],
+        ["When you see a new framework", "and think, 'Not another one!'"],
+        ["When you accidentally push your", "personal project to the company's repository."],
+        ["When you realize you've been coding", "for hours without a break."],
+        ["When you get a code review", "with 100 comments from your senior developer."]
     ]
-    const randLines = memeLines[getRandomIntInclusive(0, 9)]
+    const randLines = memeLines[getRandomIntInclusive(0, memeLines.length)]
     const txt1 = randLines[0]
     const txt2 = randLines[1]
     return {txt1, txt2}

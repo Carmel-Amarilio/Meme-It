@@ -17,6 +17,9 @@ function readerMeme(){
 }
 
 function onMeme(imgURL, memeIndex){
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119)'
+
     document.querySelector('.meme-editor').classList.remove('closed')
     document.querySelector('.main-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')

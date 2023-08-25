@@ -50,6 +50,9 @@ function onRandMeme() {
 
 
 function onGallery(){
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119)'
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
+
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.remove('closed')
     document.querySelector('.filter-sec').classList.remove('closed')
@@ -59,6 +62,9 @@ function onGallery(){
 }
 
 function onMemes(){
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(70, 70, 70)'
+
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.meme-editor').classList.add('closed')
@@ -68,6 +74,9 @@ function onMemes(){
 }
 
 function onImg(imgURL) {
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119)'
+
     document.querySelector('.meme-editor').classList.remove('closed')
     document.querySelector('.main-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')
