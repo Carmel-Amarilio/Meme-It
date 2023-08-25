@@ -65,5 +65,5 @@ function getKeywords() {
 }
 
 function getCommonWord() {
-    return getTop4(gKeyWordsMap)
+    return Object.entries(gKeyWordsMap)
 }

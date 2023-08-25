@@ -51,8 +51,3 @@ function isEmptyObject(obj) {
     return true;
 }
 
-function getTop4(data){
-    const entries = Object.entries(data)
-    entries.sort((a, b) => b[1] - a[1])
-    return entries.slice(0, 4)
-}

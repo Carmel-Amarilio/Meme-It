@@ -2,42 +2,53 @@
 
 
 function onInIt() {
-    ReaderGall()
+    renderGall()
+    window.addEventListener('resize', renderCommonWord)
 }
 
-function ReaderGall() {
+function renderGall() {
     const imgs = getImgs()
     let gallHTML = ''
-    imgs.forEach(img => {gallHTML +=
+    imgs.forEach(img => {
+        gallHTML +=
         `<img src="${img.url}" alt="#" onclick="onImg('${img.url}')">`
     })
     document.querySelector('.img-gallery').innerHTML = gallHTML
 
     const keywords = getKeywords()
     let filterHTML = `<option value="">All</option>`
-    keywords.forEach(word => {filterHTML +=
+    keywords.forEach(word => {
+        filterHTML +=
         `<option value="${word}">${word}</option>`
     })
     document.querySelector('.filter').innerHTML = filterHTML
+    renderCommonWord()
+}
+
+function renderCommonWord(ev,isAll = false) {
+    const screenWidth = window.innerWidth;
 
     const commonWords = getCommonWord()
     let commonWordsHTML = ''
-    commonWords.forEach((word) => {commonWordsHTML +=
-        `<span onclick="filter('${word[0]}')" style="font-size: ${word[1]*2+16}px;">${word[0]}</span>`
-    })
+    const words = (isAll) ? commonWords.length : screenWidth / 400
+    console.log(isAll);
+    for (let i = 0; i < words; i++) {
+        const word =commonWords[i]
+        commonWordsHTML += `<span onclick="filter('${word[0]}')" style="font-size: ${word[1] * 2 + 16}px;">${word[0]}</span>`
+    }
+    if(!isAll) commonWordsHTML += `<span onclick="renderCommonWord(0,true)">all...</span>`
     document.querySelector('.common-words').innerHTML = commonWordsHTML
-    
 }
 
-function onSetFilter(elFilter){
+function onSetFilter(elFilter) {
     const val = elFilter.value
     filterBay(val)
-    ReaderGall()
+    renderGall()
     document.querySelector('.filter').value = val
 }
-function filter(word){
+function filter(word) {
     filterBay(word)
-    ReaderGall()
+    renderGall()
 }
 
 function onRandMeme() {
@@ -49,7 +60,7 @@ function onRandMeme() {
 }
 
 
-function onGallery(){
+function onGallery() {
     document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
     document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
     document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
@@ -63,7 +74,7 @@ function onGallery(){
     onInIt()
 }
 
-function onMemes(){
+function onMemes() {
     document.querySelector('.memes').style.backgroundColor = 'rgb(70, 70, 70)'
     document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
     document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
@@ -77,7 +88,7 @@ function onMemes(){
     inMeme()
 }
 
-function onAbout(){
+function onAbout() {
     document.querySelector('.about').style.backgroundColor = 'rgb(70, 70, 70)'
     document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
     document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
@@ -104,7 +115,7 @@ function onImg(imgURL) {
     inEditor(imgURL)
 }
 
-function onUploadImg(img){
+function onUploadImg(img) {
     onImg(img.src)
 }
 
