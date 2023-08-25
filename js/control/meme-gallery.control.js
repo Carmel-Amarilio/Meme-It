@@ -50,37 +50,57 @@ function onRandMeme() {
 
 
 function onGallery(){
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119)'
     document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
+    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
 
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.remove('closed')
     document.querySelector('.filter-sec').classList.remove('closed')
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
+    document.querySelector('.main-about').classList.add('closed')
     onInIt()
 }
 
 function onMemes(){
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119)'
     document.querySelector('.memes').style.backgroundColor = 'rgb(70, 70, 70)'
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
+    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
 
     document.querySelector('.main-gallery').classList.remove('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.filter-sec').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
+    document.querySelector('.main-about').classList.add('closed')
     inMeme()
 }
 
+function onAbout(){
+    document.querySelector('.about').style.backgroundColor = 'rgb(70, 70, 70)'
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
+
+    document.querySelector('.main-about').classList.remove('closed')
+    document.querySelector('.main-gallery').classList.add('closed')
+    document.querySelector('.file-input').classList.add('closed')
+    document.querySelector('.meme-editor').classList.add('closed')
+    document.querySelector('.filter-sec').classList.add('closed')
+    document.querySelector('.main-nav-container').classList.add('open');
+
+}
+
 function onImg(imgURL) {
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119)'
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119)'
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119, 0)'
+    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119, 0)'
+    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119, 0)'
 
     document.querySelector('.meme-editor').classList.remove('closed')
     document.querySelector('.main-gallery').classList.add('closed')
     document.querySelector('.file-input').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
+    document.querySelector('.main-about').classList.add('closed')
     inEditor(imgURL)
 }
 

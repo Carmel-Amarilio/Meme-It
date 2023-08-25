@@ -1,0 +1,32 @@
+.main-about header{
+    text-align: center;
+}
+
+.main-about>* {
+    margin-bottom: 10px;
+}
+
+.main-about .about-text-container {
+    background-color: rgb(44, 43, 43,0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.main-about .main-about-text{
+    width: 75vw;
+}
+
+.about-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--minImgSize), 1fr));
+    align-items: center;
+    background-color: var(--galleryClr);
+    background-size: cover;
+    gap: 30px;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.about-img img:hover {
+    scale: 1.5;
+}
