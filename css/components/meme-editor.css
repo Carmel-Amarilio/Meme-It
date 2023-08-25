@@ -32,20 +32,25 @@
     margin-inline: 5px;
 }
 
-.main-editor .add-txt, .delete-txt, .current-txt{
+.main-editor .add-txt,
+.delete-txt,
+.current-txt {
     font-size: 25px;
 }
-.main-editor .current-txt{
+
+.main-editor .current-txt {
     transform: rotate(90deg);
 }
-.main-editor .current-txt:hover{
+
+.main-editor .current-txt:hover {
     background-color: rgb(70, 120, 214);
 }
 
-.main-editor .add-txt:hover{
+.main-editor .add-txt:hover {
     background-color: rgb(84, 168, 88);
 }
-.main-editor .delete-txt:hover{
+
+.main-editor .delete-txt:hover {
     background-color: rgb(219, 65, 31);
 }
 
@@ -66,19 +71,39 @@
     padding: 10px;
 }
 
-.main-editor .txt-style .set-font{
+.main-editor .txt-style .set-font {
     border-radius: 5px;
 }
-.color{
-margin-inline: 5px;
+
+.color {
+    margin-inline: 5px;
 }
-.color label{
+
+.color label {
     font-size: 25px;
     color: black;
 }
-.main-editor .txt-style .color-text, .color-text-around{
-   width: 30px;
-   height: 30px;
+
+.main-editor .txt-style .color-text,
+.color-text-around {
+    width: 30px;
+    height: 30px;
+}
+
+.main-editor .emoji {
+    background-color: rgba(245, 245, 220, 0.489);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.main-editor .emoji span {
+    font-size: 30px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.main-editor .emoji span:hover {
+    background-color: rgba(211, 211, 211, 0.628);
 }
 
 

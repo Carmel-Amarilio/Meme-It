@@ -27,8 +27,8 @@ function getMeme() {
     return gMeme
 }
 
-function addTxt() {
-    const newTxt = { txt: 'Funny Text', color: '#176ED2', colorAround: '#000000' ,inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 2} }
+function addTxt(txt = 'Funny Text') {
+    const newTxt = { txt, color: '#176ED2', colorAround: '#000000' ,inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 2} }
     gMeme.text.push(newTxt)
 }
 

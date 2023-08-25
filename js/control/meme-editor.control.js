@@ -78,8 +78,8 @@ function onCurrTxt(){
     else gCurrTxt.id++
     openMeme()
 }
-function onAddTxt() {
-    addTxt(gCanvas.height)
+function onAddTxt(txt) {
+    addTxt(txt)
     openMeme()
 }
 
@@ -111,6 +111,10 @@ function onColorTxtAround(color) {
 function onSetFont(elFont) {
     updateCurrMemeTxtFont(elFont.value, gCurrTxt.id)
     openMeme()
+}
+
+function onEmoji(emoji){
+    onAddTxt(emoji)
 }
 
 

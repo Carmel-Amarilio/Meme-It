@@ -32,7 +32,8 @@
         <section class="main-editor">
             <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
             <section class="flex justify-center">
-                <button onclick="onCurrTxt()" class="current-txt"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                <button onclick="onCurrTxt()" class="current-txt"><i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></button>
                 <button onclick="onAddTxt()" class="add-txt"><i class="fa-regular fa-square-plus"></i></button>
                 <button onclick="onDeleteTxt()" class="delete-txt"><i class="fa-solid fa-trash"></i></i></button>
             </section>
@@ -43,13 +44,13 @@
                     <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
                                 class="fa-solid fa-minus"></i></span></button>
                 </section>
-                <section class="flex justify-center">
+                <section class="align flex justify-center">
                     <button onclick="onAlignTxt('end')" class="left"><i class="fa-solid fa-align-left"></i></button>
                     <button onclick="onAlignTxt('center')" class="center"><i
                             class="fa-solid fa-align-justify"></i></button>
                     <button onclick="onAlignTxt('start')" class="right"><i class="fa-solid fa-align-right"></i></button>
                 </section>
-                <section class="flex space-between">
+                <section class="font flex space-between">
                     <select class="set-font" onchange="onSetFont(this)">
                         <option value="Arial">Arial</option>
                         <option value="Georgia">Georgia</option>
@@ -67,6 +68,13 @@
                             oninput="onColorTxtAround(this.value)" />
                     </article>
                 </section>
+            </section>
+            <section class="emoji flex space-between">
+                <span onclick="onEmoji('🕶️')">🕶️</span>
+                <span onclick="onEmoji('👑')">👑</span>
+                <span onclick="onEmoji('❤️')">❤️</span>
+                <span onclick="onEmoji('🔥')">🔥</span>
+                <span onclick="onEmoji('🎩')">🎩</span>
             </section>
             <footer>
                 <nav class="sher-download-bar">
