@@ -37,6 +37,7 @@
 
 .img-gallery img{
     cursor: pointer;
+    max-width: 400px;
 }
 .img-gallery img:hover{
     opacity: .6;

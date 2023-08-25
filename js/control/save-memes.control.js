@@ -10,10 +10,21 @@ function readerMeme(){
     let gallHTML = ''
     if(!memes) gallHTML = 'no meme saved'
     else memes.forEach((meme, index) => {gallHTML +=
-        ` <img src="${meme.imgContent}" alt="#" onclick="onMeme('${meme.imgURL}', ${index})">`
+        `<div >
+        <img src="${meme.imgContent}" alt="#" onclick="onMeme('${meme.imgURL}', ${index})">
+        <button onclick="onDeleteMeme(${index})" class="delete-Meme"><i class="fa-solid fa-trash"></i></i></button>
+        </div>
+        `
     })
 
     document.querySelector('.img-gallery').innerHTML = gallHTML
+}
+
+function onDeleteMeme(index) {
+    const memes = loadFromStorage('memesDB');
+    memes.splice(index, 1);
+    saveToStorage('memesDB', memes);
+    readerMeme()
 }
 
 function onMeme(imgURL, memeIndex){
