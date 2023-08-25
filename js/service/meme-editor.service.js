@@ -6,7 +6,7 @@ function resatMeme() {
     gMeme = {
         text: [
             { txt: 'Funny Text', color: '#ffffff', colorAround: '#000000', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: .5} },
-            { txt: 'Funny Text', color: '#ffffff', colorAround: '#00000', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 4.5} }
+            { txt: 'Funny Text', color: '#ffffff', colorAround: '#000000', inc: 1, font: 'Arial', align: 'center', pos: { x: 0, y: 4.5} }
         ]
     }
 }

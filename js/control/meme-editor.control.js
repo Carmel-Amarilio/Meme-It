@@ -8,7 +8,7 @@ const gCurrTxt = { isMove: false, id: 0 }
 function inEditor(imgURL) {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
-    resatMeme(gCanvas.height)
+    resatMeme()
     addListeners()
     updateCurrMemeImg(imgURL)
     resizeCanvas()
@@ -35,7 +35,8 @@ function openMeme() {
     const meme = getMeme()
     const img = new Image();
     img.src = meme.imgURL;
-    gCanvas.height = img.naturalHeight/ img.naturalWidth* gCanvas.width
+    console.log(img,img.naturalHeight, img.naturalWidth, gCanvas.width);
+    gCanvas.height = (img.naturalHeight/ img.naturalWidth* gCanvas.width)
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     meme.text.forEach(text => drawText(text))
     addBorderToTxt()
