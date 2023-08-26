@@ -52,6 +52,7 @@ function filter(word) {
 }
 
 function onRandMeme() {
+    filter('')
     const imgs = getImgs()
     const randNum = getRandomIntInclusive(1, imgs.length)
     const url = `img/${randNum}.jpg`
@@ -71,6 +72,7 @@ function onGallery() {
     document.querySelector('.meme-editor').classList.add('closed')
     document.querySelector('.main-nav-container').classList.remove('open');
     document.querySelector('.main-about').classList.add('closed')
+    filter('')
     onInIt()
 }
 

@@ -30,3 +30,8 @@
 .about-img img:hover {
     scale: 1.5;
 }
+.about-img h3{
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210));
+}
