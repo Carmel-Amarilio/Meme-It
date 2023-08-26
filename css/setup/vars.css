@@ -8,6 +8,7 @@
 
     /* var */
     --mainContentSize: 90vw;
+    --mainMargSize: 5vw;
     --minImgSize: 200px;
     --headerHeight: 80px;
     --headerMarg: 30px

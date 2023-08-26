@@ -1,9 +1,11 @@
 @media (max-width: 600px) {
+    .main-header{
+        grid-column: 1/-1;
+    }
     .main-nav-container {
         z-index: -1;
         opacity: 0;
     }
-
     .main-nav {
         position: absolute;
         top: calc(var(--headerMarg) + var(--headerHeight));
@@ -13,25 +15,33 @@
         color: white;
         padding: 0;
     }
-
     .main-header li {
         width: 200px;
         margin-bottom: 30px;
     }
-
     .main-header li:hover {
         background-color: lightgrey;
     }
-
     .open {
         z-index: 10;
         opacity: 1;
     }
 
+
+    .img-gallery {
+        padding: 20px;
+    }
+    :root {
+        --mainContentSize: 95vw;
+        --mainMargSize: 2.5vw;
+        --minImgSize: 140px;
+    }
+
+
     .meme-editor {
         grid-template-columns: none;
         grid-template-columns: minmax(250px, 500px);
-        grid-template-rows: 1fr  30px 1fr;
+        grid-template-rows: 1fr  30px 450px;
         margin: 0;
     }
 

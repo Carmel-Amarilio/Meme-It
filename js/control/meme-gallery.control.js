@@ -4,6 +4,7 @@
 function onInIt() {
     renderGall()
     window.addEventListener('resize', renderCommonWord)
+    document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
 }
 
 function renderGall() {
@@ -11,7 +12,7 @@ function renderGall() {
     let gallHTML = ''
     imgs.forEach(img => {
         gallHTML +=
-        `<img src="${img.url}" alt="#" onclick="onImg('${img.url}')">`
+            `<img src="${img.url}" alt="#" onclick="onImg('${img.url}')">`
     })
     document.querySelector('.img-gallery').innerHTML = gallHTML
 
@@ -19,25 +20,27 @@ function renderGall() {
     let filterHTML = `<option value="">All</option>`
     keywords.forEach(word => {
         filterHTML +=
-        `<option value="${word}">${word}</option>`
+            `<option value="${word}">${word}</option>`
     })
     document.querySelector('.filter').innerHTML = filterHTML
+
     renderCommonWord()
 }
 
-function renderCommonWord(ev,isAll = false) {
+function renderCommonWord(ev, isAll = false) {
     const screenWidth = window.innerWidth;
 
     const commonWords = getCommonWord()
     let commonWordsHTML = ''
     const words = (isAll) ? commonWords.length : screenWidth / 400
-    console.log(isAll);
     for (let i = 0; i < words; i++) {
-        const word =commonWords[i]
+        const word = commonWords[i]
         commonWordsHTML += `<span onclick="filter('${word[0]}')" style="font-size: ${word[1] * 2 + 16}px;">${word[0]}</span>`
     }
-    if(!isAll) commonWordsHTML += `<span onclick="renderCommonWord(0,true)">all...</span>`
+    if (!isAll) commonWordsHTML += `<span onclick="renderCommonWord(0,true)">all...</span>`
     document.querySelector('.common-words').innerHTML = commonWordsHTML
+
+    
 }
 
 function onSetFilter(elFilter) {
@@ -49,6 +52,7 @@ function onSetFilter(elFilter) {
 function filter(word) {
     filterBay(word)
     renderGall()
+    document.querySelector('.filter').value = word
 }
 
 function onRandMeme() {
@@ -62,58 +66,38 @@ function onRandMeme() {
 
 
 function onGallery() {
+    removeNavBackground()
     document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
-    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
-
-    document.querySelector('.main-gallery').classList.remove('closed')
-    document.querySelector('.file-input').classList.remove('closed')
-    document.querySelector('.filter-sec').classList.remove('closed')
-    document.querySelector('.meme-editor').classList.add('closed')
-    document.querySelector('.main-nav-container').classList.remove('open');
-    document.querySelector('.main-about').classList.add('closed')
+    openElements(['main-gallery', 'file-input', 'filter-sec'])
+    closeElements(['meme-editor', 'main-about'])
+    closedBar()
     filter('')
     onInIt()
 }
 
 function onMemes() {
+    removeNavBackground()
     document.querySelector('.memes').style.backgroundColor = 'rgb(70, 70, 70)'
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
-    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119,0)'
-
-    document.querySelector('.main-gallery').classList.remove('closed')
-    document.querySelector('.file-input').classList.add('closed')
-    document.querySelector('.meme-editor').classList.add('closed')
-    document.querySelector('.filter-sec').classList.add('closed')
-    document.querySelector('.main-nav-container').classList.remove('open');
-    document.querySelector('.main-about').classList.add('closed')
+    openElements(['main-gallery'])
+    closeElements(['file-input', 'meme-editor', 'filter-sec', 'main-about'])
+    closedBar()
     inMeme()
 }
 
 function onAbout() {
+    removeNavBackground()
     document.querySelector('.about').style.backgroundColor = 'rgb(70, 70, 70)'
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119,0)'
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119,0)'
-
-    document.querySelector('.main-about').classList.remove('closed')
-    document.querySelector('.main-gallery').classList.add('closed')
-    document.querySelector('.file-input').classList.add('closed')
-    document.querySelector('.meme-editor').classList.add('closed')
-    document.querySelector('.filter-sec').classList.add('closed')
-    document.querySelector('.main-nav-container').classList.add('open');
+    openElements(['main-about'])
+    closeElements(['main-gallery', 'file-input', 'meme-editor', 'filter-sec'])
+    closedBar()
 
 }
 
 function onImg(imgURL) {
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-
-    document.querySelector('.meme-editor').classList.remove('closed')
-    document.querySelector('.main-gallery').classList.add('closed')
-    document.querySelector('.file-input').classList.add('closed')
-    document.querySelector('.main-nav-container').classList.remove('open');
-    document.querySelector('.main-about').classList.add('closed')
+    removeNavBackground()
+    openElements(['meme-editor'])
+    closeElements(['main-gallery', 'file-input', 'main-about'])
+    closedBar()
     inEditor(imgURL)
 }
 
@@ -121,6 +105,22 @@ function onUploadImg(img) {
     onImg(img.src)
 }
 
-function toggleMenu() {
+function onToggleMenu() {
     document.querySelector('.main-nav-container').classList.toggle('open');
+}
+
+function closedBar() {
+    document.querySelector('.main-nav-container').classList.remove('open');
+}
+
+function removeNavBackground() {
+    const elLis = document.querySelectorAll('li')
+    elLis.forEach(li => li.style.backgroundColor = 'rgb(106, 114, 119,0)')
+}
+
+function closeElements(elements) {
+    elements.forEach(el => document.querySelector(`.${el}`).classList.add('closed'))
+}
+function openElements(elements) {
+    elements.forEach(el => document.querySelector(`.${el}`).classList.remove('closed'))
 }

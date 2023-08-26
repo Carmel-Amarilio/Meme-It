@@ -6,30 +6,32 @@
     <script src="https://kit.fontawesome.com/3b18ac9277.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
-    <title>Meme It</title>
+    <title>MEMEIT</title>
 </head>
 
 <body class="main-layout" onload="onInIt()">
+
     <header class="main-header full main-layout">
-        <div class="flex space-between align-center">
+        <section class="flex space-between align-center">
             <div onclick="onRandMeme()" class="logo">Meme<span>It</div>
             <nav class="main-nav-container">
                 <ul class="main-nav flex ">
-                    <li class="gallery" onclick="onGallery()  ">Gallery</li>
+                    <li class="gallery" onclick="onGallery()">Gallery</li>
                     <li class="memes" onclick="onMemes()">Memes</li>
                     <li class="about" onclick="onAbout()">About</li>
                 </ul>
             </nav>
-            <button class="menu-icone" onclick="toggleMenu()">☰</button>
-        </div>
+            <button class="menu-icone" onclick="onToggleMenu()">☰</button>
+        </section>
     </header>
 
     <main class="meme-editor closed">
-        <section class="main-canvas">
-            <canvas width="500" height="500"></canvas>
-        </section>
-
-        <section class="main-editor">
+    
+            <section class="main-canvas flex justify-center align-center">
+                <canvas width="500" height="500"></canvas>
+            </section>
+       
+        <section class="main-editor grid justify-center align-center">
             <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
             <section class="flex justify-center">
                 <button onclick="onCurrTxt()" class="current-txt"><i
@@ -37,7 +39,7 @@
                 <button onclick="onAddTxt()" class="add-txt"><i class="fa-regular fa-square-plus"></i></button>
                 <button onclick="onDeleteTxt()" class="delete-txt"><i class="fa-solid fa-trash"></i></i></button>
             </section>
-            <section class="txt-style">
+            <section class="txt-style grid justify-center align-center">
                 <section class="flex justify-center">
                     <button onclick="onIncTxt(.1)" class="increase"><i class="fa-solid fa-a"></i><span><i
                                 class="fa-solid fa-plus"></i></span></button>
@@ -79,7 +81,7 @@
                     <article>
             </section>
             <footer>
-                <nav class="sher-download-bar">
+                <nav class="sher-download-bar flex justify-center align-center space-between">
                     <button class="facebook-bnt" onclick="onUploadImgToFacebook()">
                         <i class="fa-brands fa-facebook-f"></i>
                     </button>
@@ -116,7 +118,8 @@
                 <h3>Overview:</h3>
                 <p>
                     MEMEIT is a powerful and user-friendly meme editor app that allows you to create, customize, and
-                    share hilarious memes with ease. Whether you're a meme enthusiast or just looking to add some humor to
+                    share hilarious memes with ease. Whether you're a meme enthusiast or just looking to add some humor
+                    to
                     your
                     social media posts, MEMEIT has got you covered.
                 </p>
@@ -136,15 +139,20 @@
 
                 <h3>Why MEMEIT:</h3>
                 <ul>
-                    <li>User-Friendly: MEMEIT is designed for users of all levels, from meme beginners to seasoned creators. Create memes effortlessly with our straightforward tools.</li>
-                    <li>Endless Possibilities: With a wide range of customization options, you can create memes that reflect your unique style and humor.</li>
-                    <li>Frequent Updates: MemeIt is continually updated with new features, templates, and stickers to keep your meme game fresh.</li>
-                    <li>Community and Sharing: Join the MEMEIT community to share your creations, discover trending memes, and connect with fellow meme enthusiasts.</li>
+                    <li>User-Friendly: MEMEIT is designed for users of all levels, from meme beginners to seasoned
+                        creators. Create memes effortlessly with our straightforward tools.</li>
+                    <li>Endless Possibilities: With a wide range of customization options, you can create memes that
+                        reflect your unique style and humor.</li>
+                    <li>Frequent Updates: MemeIt is continually updated with new features, templates, and stickers to
+                        keep your meme game fresh.</li>
+                    <li>Community and Sharing: Join the MEMEIT community to share your creations, discover trending
+                        memes, and connect with fellow meme enthusiasts.</li>
                 </ul>
 
                 <h3>Get Started:</h3>
-                <p>Download MEMEIT now and start crafting your own hilarious memes in seconds. It's time to unleash your inner meme artist!</p>
-                
+                <p>Download MEMEIT now and start crafting your own hilarious memes in seconds. It's time to unleash your
+                    inner meme artist!</p>
+
             </main>
         </section>
         <section class="about-img">

@@ -9,7 +9,7 @@ const gImgs = [
     { id: id++, url: 'img/3.jpg', keywords: ['funny', 'baby', 'dog'] },
     { id: id++, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
     { id: id++, url: 'img/5.jpg', keywords: ['funny', 'baby'] },
-    { id: id++, url: 'img/6.jpg', keywords: ['funny', 'willy wonka', 'man'] },
+    { id: id++, url: 'img/6.jpg', keywords: ['funny', 'man'] },
     { id: id++, url: 'img/7.jpg', keywords: ['funny', 'baby'] },
     { id: id++, url: 'img/8.jpg', keywords: ['funny', 'liders', 'man'] },
     { id: id++, url: 'img/9.jpg', keywords: ['funny', 'man'] },
@@ -23,8 +23,9 @@ const gImgs = [
     { id: id++, url: 'img/17.jpg', keywords: ['funny', 'woman'] },
     { id: id++, url: 'img/18.jpg', keywords: ['funny', 'man'] },
     { id: id++, url: 'img/19.jpg', keywords: ['funny', 'dog'] },
-    { id: id++, url: 'img/20.jpg', keywords: ['funny', 'woman'] },
+    { id: id++, url: 'img/20.jpg', keywords: ['funny', 'woman'] }
 ]
+
 let gKeyWordsMap = loadFromStorage('keyWordsMap')
 if(!gKeyWordsMap){
     gKeyWordsMap ={}

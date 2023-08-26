@@ -19,7 +19,7 @@
     opacity: .7;
 }
 .main-gallery .common-words span{
-    margin-inline: 5px;
+    margin-inline: 10px;
     cursor: pointer;
 }
 .main-gallery .common-words span:hover{
@@ -52,15 +52,14 @@
     left: 50px;
 }
 
-.file-input img {
+.main-gallery .file-input, .main-gallery .file-input img {
     cursor: pointer;
     border-radius: 5px;
     width: 70px;
     background-color:white;
 }
-.file-input img:hover {
+.main-gallery .file-input img:hover {
     background-color: var(--footerBgClr);
-    /* background: linear-gradient(to right, rgb(177, 4, 4), rgb(23, 110, 210)); */
 }
 
 .Flexible{

@@ -28,13 +28,8 @@ function onDeleteMeme(index) {
 }
 
 function onMeme(imgURL, memeIndex){
-    document.querySelector('.gallery').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-    document.querySelector('.memes').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-    document.querySelector('.about').style.backgroundColor = 'rgb(106, 114, 119, 0)'
-
-    document.querySelector('.meme-editor').classList.remove('closed')
-    document.querySelector('.main-gallery').classList.add('closed')
-    document.querySelector('.file-input').classList.add('closed')
-    document.querySelector('.main-about').classList.add('closed')
+    removeNavBackground()
+    openElements(['meme-editor'])
+    closeElements(['main-gallery', 'file-input', 'main-about'])
     loadMeme(imgURL, memeIndex)
 }

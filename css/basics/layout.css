@@ -1,7 +1,7 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr var(--mainContentSize) 1fr;
-
+    grid-template-columns: var(--mainMargSize) var(--mainContentSize) var(--mainMargSize);
+    overflow-x: hidden;
 }
 
 .main-layout>* {

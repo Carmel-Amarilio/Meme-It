@@ -6,6 +6,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
 function inEditor(imgURL) {
+    gCurrTxt.id =  0 
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     resatMeme()
@@ -37,12 +38,12 @@ function openMeme() {
     const meme = getMeme()
     const img = new Image();
     img.src = meme.imgURL;
-    img.onload = function() {
+    img.onload = function () {
         gCanvas.height = (img.naturalHeight / img.naturalWidth * gCanvas.width)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         meme.text.forEach(text => drawText(text))
         addBorderToTxt()
-      };
+    };
 }
 
 function drawText({ txt, color, colorAround, inc, font, align, pos }) {
@@ -80,16 +81,21 @@ function onCurrTxt() {
     const meme = getMeme()
     if (meme.text.length - 1 <= gCurrTxt.id) gCurrTxt.id = 0
     else gCurrTxt.id++
+    updateTools()
     openMeme()
 }
 function onAddTxt(txt) {
+    const meme = getMeme()
+    gCurrTxt.id = meme.text.length
     addTxt(txt)
+    updateTools()
     openMeme()
 }
 
 function onDeleteTxt() {
     deleteTxt(gCurrTxt.id)
     gCurrTxt.id = 0
+    updateTools()
     openMeme()
 }
 
@@ -193,6 +199,7 @@ function getTxtByPos(pos) {
 
 function updateTools() {
     const meme = getMeme()
+    if (!meme.text.length) return
     const { txt, color, colorAround, font } = meme.text[gCurrTxt.id]
     document.querySelector('.input-txt').value = txt
     document.querySelector('.color-text').value = color
