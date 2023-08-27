@@ -1,6 +1,14 @@
 .main-footer{
-    margin-block-start: 30px;
+    position:static;
+    margin-top: 30px;
     bottom: 30px;
     height: 40px;
     background-color: var(--footerBgClr);
 }
+/* 
+.main-footer {
+    position: fixed;
+    bottom: 30px;
+    height: 40px;
+    background-color: var(--footerBgClr);
+} */
