@@ -30,7 +30,7 @@ function onDeleteMeme(index) {
 
 function onMeme(imgURL, memeIndex){
     removeNavBackground()
-    openElements(['meme-editor'])
+    openElements(['meme-editor-container'])
     closeElements(['main-gallery', 'file-input', 'main-about'])
     loadMeme(imgURL, memeIndex)
 }

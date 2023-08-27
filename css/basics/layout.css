@@ -1,7 +1,7 @@
 .main-layout {
     display: grid;
     grid-template-columns: var(--mainMargSize) var(--mainContentSize) var(--mainMargSize);
-    grid-template-rows: repeat(2,  min-content);
+    grid-template-rows: min-content 1fr min-content;
     overflow-x: hidden;
 }
 

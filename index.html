@@ -24,84 +24,84 @@
             <button class="menu-icone" onclick="onToggleMenu()">☰</button>
         </section>
     </header>
-
-    <main class="meme-editor closed">
-        <section class="main-canvas flex justify-center align-center">
-            <canvas width="500" height="500"></canvas>
-        </section>
-        <section class="main-editor grid justify-center align-center">
-            <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
-            <section class="flex justify-center">
-                <button onclick="onCurrTxt()" class="current-txt"><i class="fa-solid fa-arrow-right-arrow-left"></i>
-                </button>
-                <button onclick="onAddTxt()" class="add-txt">
-                    <i class="fa-regular fa-square-plus"></i>
-                </button>
-                <button onclick="onDeleteTxt()" class="delete-txt">
-                    <i class="fa-solid fa-trash"></i></i>
-                </button>
+    <main class="meme-editor-container closed">
+        <main class="meme-editor ">
+            <section class="main-canvas flex justify-center align-center">
+                <canvas width="500" height="500"></canvas>
             </section>
-            <section class="txt-style grid justify-center align-center">
+            <section class="main-editor grid justify-center align-center">
+                <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
                 <section class="flex justify-center">
-                    <button onclick="onIncTxt(.1)" class="increase"><i class="fa-solid fa-a"></i><span><i
-                                class="fa-solid fa-plus"></i></span>
+                    <button onclick="onCurrTxt()" class="current-txt"><i class="fa-solid fa-arrow-right-arrow-left"></i>
                     </button>
-                    <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
-                                class="fa-solid fa-minus"></i>
-                        </span></button>
-                </section>
-                <section class="align flex justify-center">
-                    <button onclick="onAlignTxt('end')" class="left">
-                        <i class="fa-solid fa-align-left"></i>
+                    <button onclick="onAddTxt()" class="add-txt">
+                        <i class="fa-regular fa-square-plus"></i>
                     </button>
-                    <button onclick="onAlignTxt('center')" class="center">
-                        <i class="fa-solid fa-align-justify"></i>
-                    </button>
-                    <button onclick="onAlignTxt('start')" class="right">
-                        <i class="fa-solid fa-align-right"></i>
+                    <button onclick="onDeleteTxt()" class="delete-txt">
+                        <i class="fa-solid fa-trash"></i></i>
                     </button>
                 </section>
-                <section class="font flex space-between">
-                    <select class="set-font" onchange="onSetFont(this)">
-                        <option value="Arial">Arial</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                    </select>
-                    <article class="color">
-                        <label for="color-text"><i class="fa-solid fa-fill-drip"></i></label>
-                        <input required type="color" id="color-text" class="color-text" value="#ff0000"
-                            oninput="onColorTxt(this.value)" />
-                    </article>
-                    <article class="color">
-                        <label for="color-text-around"><i class="fa-solid fa-paintbrush"></i></label>
-                        <input required type="color" id="color-text-around" class="color-text-around" value="#000000"
-                            oninput="onColorTxtAround(this.value)" />
-                    </article>
+                <section class="txt-style grid justify-center align-center">
+                    <section class="flex justify-center">
+                        <button onclick="onIncTxt(.1)" class="increase"><i class="fa-solid fa-a"></i><span><i
+                                    class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
+                                    class="fa-solid fa-minus"></i>
+                            </span></button>
+                    </section>
+                    <section class="align flex justify-center">
+                        <button onclick="onAlignTxt('end')" class="left">
+                            <i class="fa-solid fa-align-left"></i>
+                        </button>
+                        <button onclick="onAlignTxt('center')" class="center">
+                            <i class="fa-solid fa-align-justify"></i>
+                        </button>
+                        <button onclick="onAlignTxt('start')" class="right">
+                            <i class="fa-solid fa-align-right"></i>
+                        </button>
+                    </section>
+                    <section class="font flex space-between">
+                        <select class="set-font" onchange="onSetFont(this)">
+                            <option value="Arial">Arial</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </select>
+                        <article class="color">
+                            <label for="color-text"><i class="fa-solid fa-fill-drip"></i></label>
+                            <input required type="color" id="color-text" class="color-text" value="#ff0000"
+                                oninput="onColorTxt(this.value)" />
+                        </article>
+                        <article class="color">
+                            <label for="color-text-around"><i class="fa-solid fa-paintbrush"></i></label>
+                            <input required type="color" id="color-text-around" class="color-text-around"
+                                value="#000000" oninput="onColorTxtAround(this.value)" />
+                        </article>
+                    </section>
                 </section>
+                <section>
+                    <article class="emoji flex space-between">
+                        <span onclick="onEmoji('🕶️')">🕶️</span>
+                        <span onclick="onEmoji('👑')">👑</span>
+                        <span onclick="onEmoji('❤️')">❤️</span>
+                        <span onclick="onEmoji('🔥')">🔥</span>
+                        <span onclick="onEmoji('🎩')">🎩</span>
+                        <article>
+                </section>
+                <footer>
+                    <nav class="share-download-bar flex justify-center align-center space-between">
+                        <button class="facebook-btn" onclick="onUploadImgToFacebook()">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </button>
+                        <button onclick="onSaveMeme()" class="save"><i class="fa-regular fa-floppy-disk"></i></button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><i
+                                class="fa-solid fa-download"></i></a>
+                    </nav>
+                </footer>
             </section>
-            <section>
-                <article class="emoji flex space-between">
-                    <span onclick="onEmoji('🕶️')">🕶️</span>
-                    <span onclick="onEmoji('👑')">👑</span>
-                    <span onclick="onEmoji('❤️')">❤️</span>
-                    <span onclick="onEmoji('🔥')">🔥</span>
-                    <span onclick="onEmoji('🎩')">🎩</span>
-                    <article>
-            </section>
-            <footer>
-                <nav class="share-download-bar flex justify-center align-center space-between">
-                    <button class="facebook-btn" onclick="onUploadImgToFacebook()">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </button>
-                    <button onclick="onSaveMeme()" class="save"><i class="fa-regular fa-floppy-disk"></i></button>
-                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><i
-                            class="fa-solid fa-download"></i></a>
-                </nav>
-            </footer>
-        </section>
+        </main>
     </main>
-
     <main class="main-gallery">
         <section class="filter-sec flex space-between align-center">
             <select class="filter" onchange="onSetFilter(this)"></select>

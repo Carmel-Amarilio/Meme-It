@@ -69,7 +69,7 @@ function onGallery() {
     removeNavBackground()
     document.querySelector('.gallery').style.backgroundColor = 'rgb(70, 70, 70)'
     openElements(['main-gallery', 'file-input', 'filter-sec'])
-    closeElements(['meme-editor', 'main-about'])
+    closeElements(['meme-editor-container', 'main-about'])
     closedBar()
     filter('')
     onInit()
@@ -79,7 +79,7 @@ function onMemes() {
     removeNavBackground()
     document.querySelector('.memes').style.backgroundColor = 'rgb(70, 70, 70)'
     openElements(['main-gallery'])
-    closeElements(['file-input', 'meme-editor', 'filter-sec', 'main-about'])
+    closeElements(['file-input', 'meme-editor-container', 'filter-sec', 'main-about'])
     closedBar()
     inMeme()
 }
@@ -88,14 +88,14 @@ function onAbout() {
     removeNavBackground()
     document.querySelector('.about').style.backgroundColor = 'rgb(70, 70, 70)'
     openElements(['main-about'])
-    closeElements(['main-gallery', 'file-input', 'meme-editor', 'filter-sec'])
+    closeElements(['main-gallery', 'file-input', 'meme-editor-container', 'filter-sec'])
     closedBar()
 
 }
 
 function onImg(imgURL) {
     removeNavBackground()
-    openElements(['meme-editor'])
+    openElements(['meme-editor-container'])
     closeElements(['main-gallery', 'file-input', 'main-about'])
     closedBar()
     initEditor(imgURL)

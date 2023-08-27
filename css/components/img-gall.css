@@ -17,6 +17,7 @@
     border-radius: 10px;
     background-color: var(--galleryClr);
     opacity: .7;
+    margin-block: 5px;
 }
 .main-gallery .common-words span{
     margin-inline: 10px;

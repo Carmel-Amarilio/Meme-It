@@ -15,6 +15,7 @@
     background-color: rgb(59, 59, 59);
     border-radius: 30px;
     width: minmax(1fr, 400px);
+    max-height: 500px;
 }
 
 .main-editor > * {

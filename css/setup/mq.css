@@ -1,6 +1,7 @@
 @media (max-width: 600px) {
     .main-header{
         grid-column: 1/-1;
+        grid-template-rows: 1fr;
     }
     .main-nav-container {
         z-index: -1;
