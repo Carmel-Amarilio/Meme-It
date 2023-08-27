@@ -66,7 +66,6 @@ function addBorderToTxt() {
     const boxSizeX = (txt.length * size )
     const boxSizeY = size
     gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y * gCanvas.height / 5) - size / 2, boxSizeX, boxSizeY)
-    console.log(boxSizeX, txt.length , size);
 }
 
 function onSetTxt(ev) {
