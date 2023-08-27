@@ -45,9 +45,9 @@ function getFunnyTxt(){
 function isEmptyObject(obj) {
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 

@@ -40,6 +40,7 @@
 .img-gallery img{
     cursor: pointer;
     max-width: 400px;
+    transition: 500ms;
 }
 .img-gallery img:hover{
     opacity: .6;

@@ -5,7 +5,7 @@ let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 const gCurrTxt = { isMove: false, id: 0 }
 
-function inEditor(imgURL) {
+function initEditor(imgURL) {
     gCurrTxt.id =  0 
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
@@ -17,13 +17,13 @@ function inEditor(imgURL) {
 }
 
 function loadMeme(imgURL, memeIndex) {
-    inEditor(imgURL)
+    initEditor(imgURL)
     loadTxtMeme(memeIndex)
     openMeme()
     updateTools()
 }
-function getRandText() {
-    loadRandText()
+function getRandLine() {
+    loadRandLine()
     openMeme()
     updateTools()
 }
@@ -41,12 +41,12 @@ function openMeme() {
     img.onload = function () {
         gCanvas.height = (img.naturalHeight / img.naturalWidth * gCanvas.width)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        meme.text.forEach(text => drawText(text))
+        meme.line.forEach(line => drawLine(line))
         addBorderToTxt()
     };
 }
 
-function drawText({ txt, color, colorAround, inc, font, align, pos }) {
+function drawLine({ txt, color, colorAround, inc, font, align, pos }) {
 
     const size = gCanvas.width / 11 * inc
     gCtx.fillStyle = color
@@ -60,33 +60,32 @@ function drawText({ txt, color, colorAround, inc, font, align, pos }) {
 
 function addBorderToTxt() {
     const meme = getMeme()
-    if (!meme.text.length) return
-    const { txt, inc, pos } = meme.text[gCurrTxt.id]
+    if (!meme.line.length) return
+    const { txt, inc, pos } = meme.line[gCurrTxt.id]
     const size = gCanvas.width / 11 * inc
-    const boxSizeX = txt.length * size
+    const boxSizeX = (txt.length * size )
     const boxSizeY = size
     gCtx.strokeRect(pos.x + gCanvas.width / 2 - (boxSizeX / 2), (pos.y * gCanvas.height / 5) - size / 2, boxSizeX, boxSizeY)
+    console.log(boxSizeX, txt.length , size);
 }
 
 function onSetTxt(ev) {
     ev.preventDefault()
     const elInput = document.querySelector('.input-txt')
-    if (elInput.value === '') return
-    console.log(elInput.value);
     updateCurrMemeTxt(elInput.value, gCurrTxt.id)
     openMeme()
 }
 
 function onCurrTxt() {
     const meme = getMeme()
-    if (meme.text.length - 1 <= gCurrTxt.id) gCurrTxt.id = 0
+    if (meme.line.length - 1 <= gCurrTxt.id) gCurrTxt.id = 0
     else gCurrTxt.id++
     updateTools()
     openMeme()
 }
 function onAddTxt(txt) {
     const meme = getMeme()
-    gCurrTxt.id = meme.text.length
+    gCurrTxt.id = meme.line.length
     addTxt(txt)
     updateTools()
     openMeme()
@@ -162,6 +161,7 @@ function onMove(ev) {
     pos.x = pos.x - gCanvas.width / 2
     pos.y = (pos.y / gCanvas.height / 5) * 25
     updateCurrMemeTxtPos(gCurrTxt.id, pos)
+    updateTools()
     openMeme()
 
 }
@@ -189,7 +189,7 @@ function getEvPos(ev) {
 function getTxtByPos(pos) {
     const meme = getMeme()
     let index = false
-    meme.text.forEach((txt, i) => {
+    meme.line.forEach((txt, i) => {
         const txtPosX = txt.pos.x + gCanvas.width
         const txtPosY = txt.pos.y * gCanvas.height / 5 + txt.inc + 20
         if (pos.x < txtPosX && pos.y < txtPosY && pos.y > txtPosY - 57) index = i + 1
@@ -199,32 +199,36 @@ function getTxtByPos(pos) {
 
 function updateTools() {
     const meme = getMeme()
-    if (!meme.text.length) return
-    const { txt, color, colorAround, font } = meme.text[gCurrTxt.id]
-    document.querySelector('.input-txt').value = txt
+    if (!meme.line.length) return
+    const { txt, color, colorAround, font } = meme.line[gCurrTxt.id]
     document.querySelector('.color-text').value = color
     document.querySelector('.color-text-around').value = colorAround
     document.querySelector('.set-font').value = font
-
+    const elInput = document.querySelector('.input-txt')
+    elInput.value = txt 
+    console.log();
+    elInput.focus()
+    elInput.select()
 }
 
 function onSaveMeme() {
     removeBorder()
     const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     saveMeme(imgContent)
+    openModal('Meme saved')
 }
 
 function downloadImg(elLink) {
     removeBorder()
     const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
-    console.log(imgContent);
     elLink.href = imgContent
+    openModal('Download meme')
 }
 
 function removeBorder() {
     const meme = getMeme()
-    const img = new Image();
-    img.src = meme.imgURL;
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    meme.text.forEach(text => drawText(text))
+    const img = new Image()
+    img.src = meme.imgURL
+    gCtx.drawImage(img, 0, 0,gCanvas.width, gCanvas.height)
+    meme.line.forEach(line => drawLine(line))
 }

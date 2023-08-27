@@ -9,7 +9,7 @@
     <title>MEMEIT</title>
 </head>
 
-<body class="main-layout" onload="onInIt()">
+<body class="main-layout" onload="onInit()">
 
     <header class="main-header full main-layout">
         <section class="flex space-between align-center">
@@ -26,31 +26,40 @@
     </header>
 
     <main class="meme-editor closed">
-    
-            <section class="main-canvas flex justify-center align-center">
-                <canvas width="500" height="500"></canvas>
-            </section>
-       
+        <section class="main-canvas flex justify-center align-center">
+            <canvas width="500" height="500"></canvas>
+        </section>
         <section class="main-editor grid justify-center align-center">
             <input oninput="onSetTxt(event)" class="input-txt" name="txt" type="text" placeholder="Funny Text">
             <section class="flex justify-center">
-                <button onclick="onCurrTxt()" class="current-txt"><i
-                        class="fa-solid fa-arrow-right-arrow-left"></i></button>
-                <button onclick="onAddTxt()" class="add-txt"><i class="fa-regular fa-square-plus"></i></button>
-                <button onclick="onDeleteTxt()" class="delete-txt"><i class="fa-solid fa-trash"></i></i></button>
+                <button onclick="onCurrTxt()" class="current-txt"><i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+                <button onclick="onAddTxt()" class="add-txt">
+                    <i class="fa-regular fa-square-plus"></i>
+                </button>
+                <button onclick="onDeleteTxt()" class="delete-txt">
+                    <i class="fa-solid fa-trash"></i></i>
+                </button>
             </section>
             <section class="txt-style grid justify-center align-center">
                 <section class="flex justify-center">
                     <button onclick="onIncTxt(.1)" class="increase"><i class="fa-solid fa-a"></i><span><i
-                                class="fa-solid fa-plus"></i></span></button>
+                                class="fa-solid fa-plus"></i></span>
+                    </button>
                     <button onclick="onIncTxt(-0.1)" class="reduce"><i class="fa-solid fa-a"></i><span><i
-                                class="fa-solid fa-minus"></i></span></button>
+                                class="fa-solid fa-minus"></i>
+                        </span></button>
                 </section>
                 <section class="align flex justify-center">
-                    <button onclick="onAlignTxt('end')" class="left"><i class="fa-solid fa-align-left"></i></button>
-                    <button onclick="onAlignTxt('center')" class="center"><i
-                            class="fa-solid fa-align-justify"></i></button>
-                    <button onclick="onAlignTxt('start')" class="right"><i class="fa-solid fa-align-right"></i></button>
+                    <button onclick="onAlignTxt('end')" class="left">
+                        <i class="fa-solid fa-align-left"></i>
+                    </button>
+                    <button onclick="onAlignTxt('center')" class="center">
+                        <i class="fa-solid fa-align-justify"></i>
+                    </button>
+                    <button onclick="onAlignTxt('start')" class="right">
+                        <i class="fa-solid fa-align-right"></i>
+                    </button>
                 </section>
                 <section class="font flex space-between">
                     <select class="set-font" onchange="onSetFont(this)">
@@ -81,8 +90,8 @@
                     <article>
             </section>
             <footer>
-                <nav class="sher-download-bar flex justify-center align-center space-between">
-                    <button class="facebook-bnt" onclick="onUploadImgToFacebook()">
+                <nav class="share-download-bar flex justify-center align-center space-between">
+                    <button class="facebook-btn" onclick="onUploadImgToFacebook()">
                         <i class="fa-brands fa-facebook-f"></i>
                     </button>
                     <button onclick="onSaveMeme()" class="save"><i class="fa-regular fa-floppy-disk"></i></button>
@@ -93,12 +102,12 @@
         </section>
     </main>
 
-    <main class="main-gallery ">
+    <main class="main-gallery">
         <section class="filter-sec flex space-between align-center">
             <select class="filter" onchange="onSetFilter(this)"></select>
             <div class="common-words"></div>
         </section>
-        <section class="img-gallery "></section>
+        <section class="img-gallery"></section>
         <div onclick="onRandMeme()" class="logo Flexible ">Flexible<span>It</div>
         <section class="file-input">
             <label for="file-input">
@@ -108,6 +117,8 @@
                 accept="image/*" style="display: none;" />
         </section>
     </main>
+
+    <section class="modal"></section>
 
     <main class="main-about closed">
         <section class="about-text-container flex justify-center">
@@ -166,8 +177,8 @@
     </main>
 
 
-    <footer class="main-footer full">
-        <small>all rights reserved to Carmel Amarilio &copy; 2023</small>
+    <footer class="main-footer full flex align-center justify-center">
+        <small>All rights reserved to Carmel Amarilio &copy; 2023</small>
     </footer>
 
     <script src="js/service/util.service.js"></script>

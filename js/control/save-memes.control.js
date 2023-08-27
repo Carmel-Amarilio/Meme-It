@@ -21,10 +21,11 @@ function readerMeme(){
 }
 
 function onDeleteMeme(index) {
-    const memes = loadFromStorage('memesDB');
-    memes.splice(index, 1);
-    saveToStorage('memesDB', memes);
+    const memes = loadFromStorage('memesDB')
+    memes.splice(index, 1)
+    saveToStorage('memesDB', memes)
     readerMeme()
+    openModal('Meme Deleted')
 }
 
 function onMeme(imgURL, memeIndex){

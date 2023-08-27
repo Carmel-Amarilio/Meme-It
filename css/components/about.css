@@ -25,8 +25,12 @@
     gap: 30px;
     padding: 50px;
     border-radius: 20px;
+    transition: 500ms;
 }
 
+.about-img img {
+    transition: 500ms;
+}
 .about-img img:hover {
     scale: 1.5;
 }

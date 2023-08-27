@@ -11,10 +11,30 @@ body{
     background-image: url(../../img/body-background.jpg);
     background-size: cover;
     margin: 0;
+    height: 100vh;
 }
 
 img {
     display: block;
     width: 100%;
     border-radius: 40px;
+}
+
+.modal{   
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 30px;
+    padding: 30px;
+    background-color: rgb(36, 31, 31);
+    opacity: 0;
+    z-index: -1;
+    transition:  1000ms;
+}
+
+.modal.show{
+    opacity: .7;
+    z-index: 10;
 }

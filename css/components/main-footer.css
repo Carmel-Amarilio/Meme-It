@@ -1,8 +1,6 @@
 .main-footer{
-    margin-block: 30px;
+    margin-block-start: 30px;
     bottom: 30px;
-    width: 100vw;
-    background-color:  var(--footerBgClr);
-    text-align: center;
-    padding: 20px;
+    height: 40px;
+    background-color: var(--footerBgClr);
 }
