@@ -59,17 +59,22 @@
     height: 50px;
 }
 .main-editor .input-txt:focus {
-background-color: lightgray;
+    background-color: lightgray;
 }
 
 .main-editor .txt-style {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     border-radius: 10px;
     width: minmax(30vw, 400px);
-    height: 150px;
     background-color: rgba(148, 226, 222, 0.734);
     padding: 10px;
 }
 
+.main-editor .txt-style .font {
+    height: 50px;
+}
 .main-editor .txt-style .set-font {
     border-radius: 5px;
 }
@@ -87,6 +92,7 @@ background-color: lightgray;
 .color-text-around {
     width: 30px;
     height: 30px;
+    display: none;
 }
 
 .main-editor .emoji {
@@ -104,7 +110,6 @@ background-color: lightgray;
 .main-editor .emoji span:hover {
     background-color: rgba(211, 211, 211, 0.628);
 }
-
 
 .main-editor .share-download-bar {
     justify-content: space-between;

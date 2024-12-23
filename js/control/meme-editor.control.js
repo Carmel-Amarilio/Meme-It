@@ -36,14 +36,14 @@ function resizeCanvas() {
 
 function openMeme() {
     const meme = getMeme()
-    const img = new Image();
-    img.src = meme.imgURL;
+    const img = new Image()
+    img.src = meme.imgURL
     img.onload = function () {
         gCanvas.height = (img.naturalHeight / img.naturalWidth * gCanvas.width)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         meme.line.forEach(line => drawLine(line))
         addBorderToTxt()
-    };
+    }
 }
 
 function drawLine({ txt, color, colorAround, inc, font, align, pos }) {
